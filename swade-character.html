@@ -1,0 +1,259 @@
+<div class="swade-charsheet">
+  <div class="row col-lg-6 col-xl-4 column-container" id="flavor">
+    <div class="row"><div class="col-xs-3 field-name" id="name-field">Name:</div><div class="col-xs-9">{{ $Name }}</div></div>
+    <div class="row"><div class="col-xs-3 field-name" id="race-field">Race:</div><div class="col-xs-9">{{ $Race }}</div></div>
+    <div class="row"><div class="col-xs-3 field-name" id="race-field">Rank:</div><div class="col-xs-9">{{ $Rank }}</div></div>
+    <div class="row"><div class="col-xs-3 field-name" id="race-field">Advances:</div><div class="col-xs-9">{{ $Advances }}</div></div>
+    <div class="row"><div class="col-xs-3 field-name" id="bennies-field">Bennies:</div><div class="col-xs-9">{{ $Bennies }}</div></div>
+    <div class="row"><div class="col-xs-3 field-name" id="conviction-field">Conviction:</div><div class="col-xs-9">{{ $Conviction }}</div></div>
+    <div class="row"><div class="col-xs-3 field-name" id="size-field">Size:</div><div class="col-xs-9">{{ $Size }}</div></div>
+  </div>
+
+  <div class="row col-lg-6 col-xl-4 column-container" id="attributes">
+    <div class="row attr {{ $Agility }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-4 field-name">Agility</div><div class="col-xs-2 attr-val">{{ $Agility }}</div></div>
+    <div class="row attr {{ $Smarts }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-4 field-name">Smarts</div><div class="col-xs-2 attr-val">{{ $Smarts }}</div></div>
+    <div class="row attr {{ $Spirit }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-4 field-name">Spirit</div><div class="col-xs-2 attr-val">{{ $Spirit }}</div></div>
+    <div class="row attr {{ $Strength }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-4 field-name">Strength</div><div class="col-xs-2 attr-val">{{ $Strength }}</div></div>
+    <div class="row attr {{ $Vigor }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-4 field-name">Vigor</div><div class="col-xs-2 attr-val">{{ $Vigor }}</div></div>
+    <div class="row" id="derived-stats">
+    	<div class="col-xs-4 col-stat">{{ $Pace }}<br/><div class="field-name">Pace</div></div>
+    	<div class="col-xs-4 col-stat">{{ $Parry }}<br/><div class="field-name">Parry</div></div>
+    	<div class="col-xs-4 col-stat">{{ $Toughness }}<br/><div class="field-name">Toughness</div></div>
+    </div>
+  </div>
+
+  <div class="row col-xs-12 column-container" id="health">
+    <div class="row">
+      <div class="col-xs-1 field-name">Fatigue</div>
+      @for( $i = 2; $i >= 1; $i-- )
+        <div class="col-xs-1">
+        @if( $i > 2 - $Fatigue )
+          <span class="checkoff">-{{ $i }}</span>
+        @else
+          -{{ $i }}
+        @endif
+        </div>
+      @endfor
+      <div class="col-xs-2 field-name">
+        @if( $Wounds > $Max_Wounds || $Fatigue > 2 )
+          <span class="checkoff">Incap.</span>
+        @else
+          Incap.
+        @endif
+      </div>
+      @for( $i = $Max_Wounds; $i >= 1; $i-- )
+        <div class="col-xs-1">
+        @if( $i <= $Wounds )
+          <span class="checkoff">-{{ $i }}</span>
+        @else
+          -{{ $i }}
+        @endif
+        </div>
+      @endfor
+      <div class="col-xs-1 field-name">Wounds</div>
+    </div>
+  </div>
+
+  <div class="row col-lg-6 col-xl-4 column-container" id="skills">
+    <div class="row col-xs-12 column-label">Skills</div>
+    <div class="row attr {{ $Sk_Athletics }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Athletics <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Athletics }}</div></div>
+    <div class="row attr {{ $Sk_Common_Knowledge }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Common Knowledge <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Common_Knowledge }}</div></div>
+    <div class="row attr {{ $Sk_Notice }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Notice <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Notice }}</div></div>
+    <div class="row attr {{ $Sk_Persuasion }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Persuasion <span class="skill-abil">(Spirit)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Persuasion }}</div></div>
+    <div class="row attr {{ $Sk_Stealth }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Stealth <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Stealth }}</div></div>
+    @isset( $Sk_Academics ) @if( $Sk_Academics !== "" )
+      <div class="row attr {{ $Sk_Academics }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Academics <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Academics }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Battle ) @if( $Sk_Battle !== "" )
+      <div class="row attr {{ $Sk_Battle }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Battle <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Battle }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Boating ) @if( $Sk_Boating !== "" )
+      <div class="row attr {{ $Sk_Boating }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Battle <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Boating }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Driving ) @if( $Sk_Driving !== "" )
+      <div class="row attr {{ $Sk_Driving }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Driving <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Driving }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Electronics ) @if( $Sk_Electronics !== "" )
+      <div class="row attr {{ $Sk_Electronics }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Electronics <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Electronics }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Faith ) @if( $Sk_Faith !== "" )
+      <div class="row attr {{ $Sk_Faith }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Faith <span class="skill-abil">(Spirit)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Faith }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Fighting ) @if( $Sk_Fighting !== "" )
+      <div class="row attr {{ $Sk_Fighting }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Fighting <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Fighting }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Focus ) @if( $Sk_Focus !== "" )
+      <div class="row attr {{ $Sk_Focus }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Focus <span class="skill-abil">(Spirit)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Focus }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Gambling ) @if( $Sk_Gambling !== "" )
+      <div class="row attr {{ $Sk_Gambling }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Gambling <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Gambling }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Hacking ) @if( $Sk_Hacking !== "" )
+      <div class="row attr {{ $Sk_Hacking }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Hacking <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Hacking }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Healing ) @if( $Sk_Healing !== "" )
+      <div class="row attr {{ $Sk_Healing }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Healing <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Healing }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Intimidation ) @if( $Sk_Intimidation !== "" )
+      <div class="row attr {{ $Sk_Intimidation }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Intimidation <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Intimidation }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Occult ) @if( $Sk_Occult !== "" )
+      <div class="row attr {{ $Sk_Occult }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Occult <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Occult }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Performance ) @if( $Sk_Performance !== "" )
+      <div class="row attr {{ $Sk_Performance }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Performance <span class="skill-abil">(Spirit)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Performance }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Piloting ) @if( $Sk_Piloting !== "" )
+      <div class="row attr {{ $Sk_Piloting }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Piloting <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Piloting }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Psionics ) @if( $Sk_Psionics !== "" )
+      <div class="row attr {{ $Sk_Psionics }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Psionics <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Psionics }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Repair ) @if( $Sk_Repair !== "" )
+      <div class="row attr {{ $Sk_Repair }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Repair <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Repair }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Research ) @if( $Sk_Research !== "" )
+      <div class="row attr {{ $Sk_Research }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Research <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Research }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Riding ) @if( $Sk_Riding !== "" )
+      <div class="row attr {{ $Sk_Riding }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Riding <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Riding }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Science ) @if( $Sk_Science !== "" )
+      <div class="row attr {{ $Sk_Science }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Science <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Science }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Shooting ) @if( $Sk_Shooting !== "" )
+      <div class="row attr {{ $Sk_Shooting }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Shooting <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Shooting }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Spellcasting ) @if( $Sk_Spellcasting !== "" )
+      <div class="row attr {{ $Sk_Spellcasting }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Spellcasting <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Spellcasting }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Survival ) @if( $Sk_Survival !== "" )
+      <div class="row attr {{ $Sk_Survival }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Survival <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Survival }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Taunt ) @if( $Sk_Taunt !== "" )
+      <div class="row attr {{ $Sk_Taunt }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Taunt <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Taunt }}</div></div>
+    @endif
+    @endisset
+    @isset( $Sk_Thievery ) @if( $Sk_Thievery !== "" )
+      <div class="row attr {{ $Sk_Thievery }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Thievery <span class="skill-abil">(Agility)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Thievery }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Weird_Science ) @if( $Sk_Weird_Science !== "" )
+      <div class="row attr {{ $Sk_Weird_Science }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">Weird Science <span class="skill-abil">(Smarts)</span></div><div class="col-xs-1 attr-val">{{ $Sk_Weird_Science }}</div></div>
+    @endif @endisset
+    @isset( $Sk_Custom01_Name ) @isset( $Sk_Custom01_Rank ) @if( $Sk_Custom01_Name !== "" )
+      <div class="row attr {{ $Sk_Custom01_Rank }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">{{ $Sk_Custom01_Name }}
+      @isset( $Sk_Custom01_Attr ) @if( $Sk_Custom01_Attr !== "" )<span class="skill-abil">(Smarts)</span>@endif  @endisset
+      </div><div class="col-xs-1 attr-val">{{ $Sk_Custom01_Rank }}</div></div>
+    @endif @endisset @endisset
+    @isset( $Sk_Custom02_Name ) @isset( $Sk_Custom02_Rank ) @if( $Sk_Custom02_Name !== "" )
+      <div class="row attr {{ $Sk_Custom02_Rank }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">{{ $Sk_Custom02_Name }}
+      @isset( $Sk_Custom02_Attr ) @if( $Sk_Custom02_Attr !== "" )<span class="skill-abil">(Smarts)</span>@endif  @endisset
+      </div><div class="col-xs-1 attr-val">{{ $Sk_Custom02_Rank }}</div></div>
+    @endif @endisset @endisset
+    @isset( $Sk_Custom03_Name ) @isset( $Sk_Custom03_Rank ) @if( $Sk_Custom03_Name !== "" )
+      <div class="row attr {{ $Sk_Custom03_Rank }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">{{ $Sk_Custom03_Name }}
+      @isset( $Sk_Custom03_Attr ) @if( $Sk_Custom03_Attr !== "" )<span class="skill-abil">(Smarts)</span>@endif  @endisset
+      </div><div class="col-xs-1 attr-val">{{ $Sk_Custom03_Rank }}</div></div>
+    @endif @endisset @endisset
+    @isset( $Sk_Custom04_Name ) @isset( $Sk_Custom04_Rank ) @if( $Sk_Custom04_Name !== "" )
+      <div class="row attr {{ $Sk_Custom04_Rank }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">{{ $Sk_Custom04_Name }}
+      @isset( $Sk_Custom04_Attr ) @if( $Sk_Custom04_Attr !== "" )<span class="skill-abil">(Smarts)</span>@endif  @endisset
+      </div><div class="col-xs-1 attr-val">{{ $Sk_Custom04_Rank }}</div></div>
+    @endif @endisset @endisset
+    @isset( $Sk_Custom05_Name ) @isset( $Sk_Custom05_Rank ) @if( $Sk_Custom05_Name !== "" )
+      <div class="row attr {{ $Sk_Custom05_Rank }}">
+      @for ($i = 0; $i < 5; $i++)<div class="col-xs-1 dice">&nbsp;</div>@endfor
+      <div class="col-xs-6 field-name">{{ $Sk_Custom05_Name }}
+      @isset( $Sk_Custom05_Attr ) @if( $Sk_Custom05_Attr !== "" )<span class="skill-abil">(Smarts)</span>@endif  @endisset
+      </div><div class="col-xs-1 attr-val">{{ $Sk_Custom05_Rank }}</div></div>
+    @endif @endisset @endisset
+</div>
+  <div class="row col-lg-6 col-xl-4 column-container" id="hindrances">
+    <div class="row col-xs-12 column-label">Hindrances</div>
+    <div class="row col-xs-12 multiline">{!! $Hindrances !!}</div>
+  </div>
+  <div class="row col-lg-6 col-xl-4 column-container" id="edges">
+    <div class="row col-xs-12 column-label">Edges</div>
+    <div class="row col-xs-12 multiline">{!! $Edges !!}</div>
+  </div>
+</div>
