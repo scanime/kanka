@@ -1,6 +1,10 @@
+@if( $Max_PP > 0 )
+<div class="char-sheet with-pp">
+@else
 <div class="char-sheet">
+@endif
     <div class="flavor">
-        <div class="char-label" id="label-name">Name</div><div class="value">{{ $Name }}</div>
+        <div id="label-name"><h3>{{ $Name }}</h3></div>
         <div class="char-label">Race</div><div class="value">{{ $Race }}</div>
         <div class="char-label">Rank</div><div class="value">{{ $Rank }}</div>
         <div class="char-label">Bennies</div><div class="value">{{ $Bennies }}</div>
@@ -14,6 +18,31 @@
         <div class="dice-wrapper {{ $Strength }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Strength</div><div class="value">{{ $Strength }}</div></div>
         <div class="dice-wrapper {{ $Vigor }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Vigor</div><div class="value">{{ $Vigor }}</div></div>
     </div>
+    @isset( $Max_PP ) @if( $Max_PP > 0 )
+        <div class="pp">
+            <div class="pp-header">Power Points</div>
+            <div class="pp-values">
+                @for( $i = 1; $i <= $Max_PP; ++$i )
+                    <div class="pp-check">
+                        @if( $i <= $PP )
+                            &#x2718;
+                        @else
+                            &nbsp;
+                        @endif
+                    </div>
+                    <div class="pp-value">
+                        @if( $i == $Max_PP )
+                            {{ $i }}
+                        @elseif( $i % 5 == 0 )
+                            {{ $i }}
+                        @else
+                            &nbsp;
+                        @endif
+                    </div>
+                @endfor
+            </div>
+        </div>
+    @endif @endisset
     <div class="skills">
         <div class="skill-header"><h3>Skills</h3></div>
         <div class="skill-details">
@@ -131,7 +160,13 @@
                 @endif
             </div>
         @endfor
-        <div class="char-label">Incap.</div>
+        <div class="char-label">
+            @if( $Wounds > $Max_Wounds || $Fatigue > 2 )
+                <span class="checkoff">Incap.</span>
+            @else
+                Incap.
+            @endif
+        </div>
         @for( $i = $Max_Wounds; $i >= 1; $i-- )
             <div class="wound-count">
                 @if( $i <= $Wounds )
