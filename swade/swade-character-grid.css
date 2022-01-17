@@ -1,3 +1,7 @@
+:root {
+  --check-color: red;
+}
+
 .char-sheet {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -10,6 +14,23 @@
         "health health"
         "powers powers"
         "gear gear";
+    grid-gap: 10px;
+    max-width: 1000px;
+    padding: 10px;
+    justify-content: center;
+}
+.char-sheet.with-pp {
+    display: grid;
+    grid-template-columns: 1fr 1fr 40px;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "flavor attributes pp"
+        "skills derived-stats pp"
+        "skills hindrances pp"
+        "skills edges pp"
+        "health health pp"
+        "powers powers pp"
+        "gear gear pp";
     grid-gap: 10px;
     max-width: 1000px;
     padding: 10px;
@@ -59,7 +80,8 @@
     padding: 10px;
 }
 .char-sheet .flavor .char-label { font-weight: 800; padding-top: 5px; }
-.char-sheet .flavor .char-label#label-name { font-size: 125%; padding-top: 5px; }
+.char-sheet .flavor div#label-name { grid-column: 1 / 3; }
+.char-sheet .flavor div#label-name h3 { text-align: left; }
 .char-sheet .flavor .value { border-bottom: solid 1px rgba(0,0,0,0.3); margin-bottom: 7px; }
 
 .char-sheet .attributes {
@@ -72,6 +94,33 @@
 }
 .char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
 .char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
+
+.char-sheet .pp {
+    grid-area: pp;
+    display: grid;
+    justify-items: stretch;
+    align-content: center;
+    grid-template-columns: 2fr;
+    grid-template-rows: 2fr;
+    grid-template-areas:
+        "pp-header"
+        "pp-values";
+}
+.char-sheet .pp .pp-values
+{
+    grid-area: pp-values;
+    display: grid;
+    justify-items: stretch;
+    align-content: center;
+    grid-template-columns: 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "pp-check pp-value"
+}
+.char-sheet .pp .pp-header { align-self: start; justify-self: center; font-weight: 800; writing-mode: vertical-rl; text-orientation: mixed; padding-bottom: 1em; }
+.char-sheet .pp .pp-values .pp-check { border: 1px solid black; text-align: center; }
+.char-sheet .pp .pp-values .pp-value { writing-mode: vertical-rl; text-orientation: mixed; }
+
 
 .char-sheet .skills {
     grid-area: skills;
@@ -149,7 +198,7 @@
 .char-sheet .health .checkoff {
     /** font-color: red; **/
 }
-.char-sheet .health .checkoff::after { content: '&#x2718;'; color: red; font-weight: 800; font-size: 125%; margin-left: -1em; }
+.char-sheet .health .checkoff::after { content: '&#x2718;'; color: var(--check-color); font-weight: 800; font-size: 125%; margin-left: -1em; }
 
 /*
 @media (min-width: 1400px) {
