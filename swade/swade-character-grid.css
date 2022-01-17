@@ -1,0 +1,163 @@
+.char-sheet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "flavor attributes"
+        "skills derived-stats"
+        "skills hindrances"
+        "skills edges"
+        "health health"
+        "powers powers"
+        "gear gear";
+    grid-gap: 10px;
+    max-width: 1000px;
+    padding: 10px;
+    justify-content: center;
+}
+.char-sheet h3 { margin: 0px; padding: 5px; text-align: center; text-transform: uppercase; font-size: 150%; }
+.char-sheet br { content: "A"!important; display: block !important; margin-bottom: 0.5em !important; border-bottom: 1px solid rgba(0,0,0,0.3); margin-top: 0.5em!important; }
+
+@media (max-width: 768px) /** md **/
+{
+    .char-sheet {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "flavor"
+            "attributes"
+            "derived-stats"
+            "skills"
+            "hindrances"
+            "edges"
+            "health"
+            "powers"
+            "gear";
+    }
+}
+
+.char-sheet .dice-wrapper { display: contents; }
+.char-sheet .dice { background-size: contain; background-repeat: no-repeat; background-position: top center; }
+.char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4.png"); }
+.char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6.png"); }
+.char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8.png"); }
+.char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10.png"); }
+.char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12.png"); }
+.char-sheet .dice-wrapper.d4 .d4, .char-sheet .dice-wrapper.d4\+1 .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-red.png"); }
+.char-sheet .dice-wrapper.d6 .d6, .char-sheet .dice-wrapper.d6\+1 .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-red.png"); }
+.char-sheet .dice-wrapper.d8 .d8, .char-sheet .dice-wrapper.d8\+1 .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-red.png"); }
+.char-sheet .dice-wrapper.d10 .d10, .char-sheet .dice-wrapper.d10\+1 .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-red.png"); }
+.char-sheet .dice-wrapper.d12 .d12, .char-sheet .dice-wrapper.d12\+1 .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-red.png"); }
+
+.char-sheet .flavor {
+    border: 3px double black; border-radius: 10px;
+    grid-area: flavor;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "char-label value";
+    padding: 10px;
+}
+.char-sheet .flavor .char-label { font-weight: 800; padding-top: 5px; }
+.char-sheet .flavor .char-label#label-name { font-size: 125%; padding-top: 5px; }
+.char-sheet .flavor .value { border-bottom: solid 1px rgba(0,0,0,0.3); margin-bottom: 7px; }
+
+.char-sheet .attributes {
+    grid-area: attributes;
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr ) 3fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "d4 d6 d8 d10 d12 char-label value";
+}
+.char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
+.char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
+
+.char-sheet .skills {
+    grid-area: skills;
+    dislay: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "skill-header"
+        "skill-details";
+}
+.char-sheet .skill-header { align-self: center; justify-self: center; }
+.char-sheet .skill-details {
+    grid-area: skill-details;
+    display: grid;
+    grid-template-columns: repeat( 5, 1fr ) 3fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "d4 d6 d8 d10 d12 char-label attribute value";
+}
+.char-sheet .skills .char-label { font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: end; max-height: 1.75em; white-space: nowrap; margin-bottom: 7px; }
+.char-sheet .skills .linked-attr { font-weight: normal; font-size: 75%; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: end; margin-bottom: 7px; }
+.char-sheet .skills .value { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: end; margin-bottom: 7px; }
+
+.char-sheet .derived-stats {
+    grid-area: derived-stats;
+    display: grid;
+    justify-items: center;
+    border-top: 3px double black;
+    padding-top: 0.5em;
+    margin-top: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "pace parry toughness";
+}
+.char-sheet .derived-stats .derived-labels { display: contents; }
+.char-sheet .derived-stats .derived-labels div { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
+
+.char-sheet .hindrances {
+    grid-area: hindrances;
+    dislay: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "hindrances-header"
+        "hindrances-details";
+}
+.char-sheet .hindrances-header { align-self: center; justify-self: center; }
+.char-sheet .hindrances-details { font-size: 100%; }
+
+.char-sheet .edges {
+    grid-area: edges;
+    dislay: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "edges-header"
+        "edges-details";
+}
+.char-sheet .edges-header { align-self: center; justify-self: center; }
+.char-sheet .edges-details { font-size: 100%; }
+
+.char-sheet .health {
+    grid-area: health;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: auto;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr;
+    border: 3px double black;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 800;
+}
+.char-sheet .health .checkoff {
+    /** font-color: red; **/
+}
+.char-sheet .health .checkoff::after { content: '&#x2718;'; color: red; font-weight: 800; font-size: 125%; margin-left: -1em; }
+
+/*
+@media (min-width: 1400px) {
+    .char-sheet {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "flavor attributes attributes derived-stats"
+            "skills skills hindrances hindrances";
+    }
+}
+*/
