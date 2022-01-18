@@ -1,14 +1,28 @@
 @if( $Max_PP > 0 )
-<div class="char-sheet with-pp">
+<div class="swade-char-sheet with-pp">
 @else
-<div class="char-sheet">
+<div class="swade-char-sheet">
 @endif
     <div class="flavor">
         <div id="label-name"><h3>{{ $Name }}</h3></div>
         <div class="char-label">Race</div><div class="value">{{ $Race }}</div>
-        <div class="char-label">Rank</div><div class="value">{{ $Rank }}</div>
+        <div class="char-label">Rank</div>
+        <div class="value">
+            {{ $Rank }}
+            @if( $Advances > 0 )
+                &nbsp;({{ $Advances }}
+                @if( $Advances !== 1 )
+                    advances)
+                @else
+                    advance)
+                @endif
+            @endif
+        </div>
         <div class="char-label">Bennies</div><div class="value">{{ $Bennies }}</div>
         @isset( $Conviction ) @if( $Conviction !== "" )<div class="char-label">Conviction</div><div class="value">{{ $Conviction }}</div>@endif @endisset
+        @isset( $Sanity ) @if( $Sanity !== "" )<div class="char-label">Sanity</div><div class="value">{{ $Sanity }}</div>@endif @endisset
+        @isset( $Major ) @if( $Major !== "" )<div class="char-label">Major</div><div class="value">{{ $Major }}</div>@endif @endisset
+        @isset( $Street_Cred ) @if( $Street_Cred !== "" )<div class="char-label">Street_Cred</div><div class="value">{{ $Street_Cred }}</div>@endif @endisset
         <div class="char-label">Size</div><div class="value">{{ $Size }}</div>
     </div>
     <div class="attributes">
@@ -127,7 +141,34 @@
                 <div class="dice-wrapper {{ $Sk_Weird_Science }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Weird Science</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Weird_Science }}</div></div>
             @endif @endisset
             @isset( $Sk_Custom01_Name ) @isset( $Sk_Custom01_Rank ) @if( $Sk_Custom01_Name !== "" )
-                <div class="dice-wrapper {{ $Sk_Custom01_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom01_Name }}</div><div class="linked-attr">@if( $Sk_Custom01_Attr !== "" ){{ $Sk_Custom01_Attr }}@endif</div><div class="value">{{ $Sk_Custom01_Rank }}</div></div>
+                <div class="dice-wrapper {{ $Sk_Custom01_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom01_Name }}</div><div class="linked-attr">@if( $Sk_Custom01_Attr !== "" )({{ $Sk_Custom01_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom01_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom02_Name ) @isset( $Sk_Custom02_Rank ) @if( $Sk_Custom02_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom02_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom02_Name }}</div><div class="linked-attr">@if( $Sk_Custom02_Attr !== "" )({{ $Sk_Custom02_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom02_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom03_Name ) @isset( $Sk_Custom03_Rank ) @if( $Sk_Custom03_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom03_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom03_Name }}</div><div class="linked-attr">@if( $Sk_Custom03_Attr !== "" )({{ $Sk_Custom03_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom03_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom04_Name ) @isset( $Sk_Custom04_Rank ) @if( $Sk_Custom04_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom04_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom04_Name }}</div><div class="linked-attr">@if( $Sk_Custom04_Attr !== "" )({{ $Sk_Custom04_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom04_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom05_Name ) @isset( $Sk_Custom05_Rank ) @if( $Sk_Custom05_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom05_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom05_Name }}</div><div class="linked-attr">@if( $Sk_Custom05_Attr !== "" )({{ $Sk_Custom05_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom05_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom06_Name ) @isset( $Sk_Custom06_Rank ) @if( $Sk_Custom06_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom06_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom06_Name }}</div><div class="linked-attr">@if( $Sk_Custom06_Attr !== "" )({{ $Sk_Custom06_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom06_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom07_Name ) @isset( $Sk_Custom07_Rank ) @if( $Sk_Custom07_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom07_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom07_Name }}</div><div class="linked-attr">@if( $Sk_Custom07_Attr !== "" )({{ $Sk_Custom07_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom07_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom08_Name ) @isset( $Sk_Custom08_Rank ) @if( $Sk_Custom08_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom08_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom08_Name }}</div><div class="linked-attr">@if( $Sk_Custom08_Attr !== "" )({{ $Sk_Custom08_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom08_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom09_Name ) @isset( $Sk_Custom09_Rank ) @if( $Sk_Custom09_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom09_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom09_Name }}</div><div class="linked-attr">@if( $Sk_Custom09_Attr !== "" )({{ $Sk_Custom09_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom09_Rank }}</div></div>
+            @endif @endisset @endisset
+            @isset( $Sk_Custom10_Name ) @isset( $Sk_Custom10_Rank ) @if( $Sk_Custom10_Name !== "" )
+                <div class="dice-wrapper {{ $Sk_Custom10_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom10_Name }}</div><div class="linked-attr">@if( $Sk_Custom10_Attr !== "" )({{ $Sk_Custom10_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom10_Rank }}</div></div>
             @endif @endisset @endisset
         </div>
     </div>
@@ -149,6 +190,94 @@
             {!! $Edges !!}
         </div>
     </div>
+    @isset( $Powers_Multiline ) @if( $Powers_Multiline !== "" )
+    <div class="powers powers-simple">
+        <div class="powers-header"><h3>Powers</h3></div>
+        <div class="powers-details">
+            {!! $Powers_Multiline !!}
+        </div>
+    </div>
+    @endif @endisset
+    @isset( $Power01_Name ) @if( $Power01_Name != "" )
+    <div class="powers">
+        <div class="powers-header"><h3>Powers</h3></div>
+        <div class="powers-details">
+            <div class="power-name">Name</div>
+            <div class="power-pp">PP</div>
+            <div class="power-range">Range</div>
+            <div class="power-duration">Duration</div>
+            <div class="power-effect">Effect</div>
+            <div class="power-name">{{ $Power01_Name }}</div>
+            <div class="power-pp">@isset( $Power01_PP ){{ $Power01_PP }}@endisset</div>
+            <div class="power-range">@isset( $Power01_Range ){{ $Power01_Range }}@endisset</div>
+            <div class="power-duration">@isset( $Power01_Duration ){{ $Power01_Duration }}@endisset</div>
+            <div class="power-effect">@isset( $Power01_Effect ){{ $Power01_Effect }}@endisset</div>
+            @isset( $Power02_Name ) @if( $Power02_Name != "" )
+                <div class="power-name">{{ $Power02_Name }}</div>
+                <div class="power-pp">@isset( $Power02_PP ){{ $Power02_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power02_Range ){{ $Power02_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power02_Duration ){{ $Power02_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power02_Effect ){{ $Power02_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power03_Name ) @if( $Power03_Name != "" )
+                <div class="power-name">{{ $Power03_Name }}</div>
+                <div class="power-pp">@isset( $Power03_PP ){{ $Power03_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power03_Range ){{ $Power03_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power03_Duration ){{ $Power03_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power03_Effect ){{ $Power03_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power04_Name ) @if( $Power04_Name != "" )
+                <div class="power-name">{{ $Power04_Name }}</div>
+                <div class="power-pp">@isset( $Power04_PP ){{ $Power04_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power04_Range ){{ $Power04_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power04_Duration ){{ $Power04_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power04_Effect ){{ $Power04_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power05_Name ) @if( $Power05_Name != "" )
+                <div class="power-name">{{ $Power05_Name }}</div>
+                <div class="power-pp">@isset( $Power05_PP ){{ $Power05_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power05_Range ){{ $Power05_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power05_Duration ){{ $Power05_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power05_Effect ){{ $Power05_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power06_Name ) @if( $Power06_Name != "" )
+                <div class="power-name">{{ $Power06_Name }}</div>
+                <div class="power-pp">@isset( $Power06_PP ){{ $Power06_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power06_Range ){{ $Power06_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power06_Duration ){{ $Power06_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power06_Effect ){{ $Power06_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power07_Name ) @if( $Power07_Name != "" )
+                <div class="power-name">{{ $Power07_Name }}</div>
+                <div class="power-pp">@isset( $Power07_PP ){{ $Power07_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power07_Range ){{ $Power07_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power07_Duration ){{ $Power07_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power07_Effect ){{ $Power07_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power08_Name ) @if( $Power08_Name != "" )
+                <div class="power-name">{{ $Power08_Name }}</div>
+                <div class="power-pp">@isset( $Power08_PP ){{ $Power08_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power08_Range ){{ $Power08_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power08_Duration ){{ $Power08_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power08_Effect ){{ $Power08_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power09_Name ) @if( $Power09_Name != "" )
+                <div class="power-name">{{ $Power09_Name }}</div>
+                <div class="power-pp">@isset( $Power09_PP ){{ $Power09_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power09_Range ){{ $Power09_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power09_Duration ){{ $Power09_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power09_Effect ){{ $Power09_Effect }}@endisset</div>
+            @endif @endisset
+            @isset( $Power10_Name ) @if( $Power10_Name != "" )
+                <div class="power-name">{{ $Power10_Name }}</div>
+                <div class="power-pp">@isset( $Power10_PP ){{ $Power10_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power10_Range ){{ $Power10_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power10_Duration ){{ $Power10_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power10_Effect ){{ $Power10_Effect }}@endisset</div>
+            @endif @endisset
+        </div>
+    </div>
+    @endif @endisset
     <div class="health">
         <div class="char-label">Fatigue ⟫</div>
         @for( $i = 2; $i >= 1; $i-- )
@@ -177,5 +306,12 @@
             </div>
         @endfor
         <div class="char-label">⟪ Wounds</div>
+    </div>
+    <div class="gear">
+        <div class="gear-header"><h3>Gear</h3></div>
+        <div class="empty"></div><div class="char-label">Funds:</div><div class="gear-funds value">{{ $Funds }}</div><div class="char-label">Weight:</div><div class="gear-weight value">{{ $Weight }}</div><div class="empty"></div>
+        <div class="gear-details">
+            {!! $Gear !!}
+        </div>
     </div>
 </div>
