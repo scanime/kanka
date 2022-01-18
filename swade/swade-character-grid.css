@@ -1,8 +1,11 @@
 :root {
-  --check-color: red;
+  --swade-marked-color: red;
+  --swade-header-bg-color: rgba(128,128,128,0.5);
+  --swade-header-border-color: black;
+  --swade-underline-color: rgba(0,0,0,0.3);
 }
 
-.char-sheet {
+.swade-char-sheet {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -19,7 +22,7 @@
     padding: 10px;
     justify-content: center;
 }
-.char-sheet.with-pp {
+.swade-char-sheet.with-pp {
     display: grid;
     grid-template-columns: 1fr 1fr 40px;
     grid-template-rows: auto;
@@ -36,12 +39,12 @@
     padding: 10px;
     justify-content: center;
 }
-.char-sheet h3 { margin: 0px; padding: 5px; text-align: center; text-transform: uppercase; font-size: 150%; }
-.char-sheet br { content: "A"!important; display: block !important; margin-bottom: 0.5em !important; border-bottom: 1px solid rgba(0,0,0,0.3); margin-top: 0.5em!important; }
+.swade-char-sheet h3 { margin: 0px; padding: 5px; text-align: center; text-transform: uppercase; font-size: 150%; }
+.swade-char-sheet br { content: "A"!important; display: block !important; margin-bottom: 0.5em !important; border-bottom: 1px solid var(--swade-underline-color); margin-top: 0.5em!important; }
 
 @media (max-width: 768px) /** md **/
 {
-    .char-sheet {
+    .swade-char-sheet {
         grid-template-columns: 1fr;
         grid-template-areas:
             "flavor"
@@ -56,21 +59,21 @@
     }
 }
 
-.char-sheet .dice-wrapper { display: contents; }
-.char-sheet .dice { background-size: contain; background-repeat: no-repeat; background-position: top center; }
-.char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4.png"); }
-.char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6.png"); }
-.char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8.png"); }
-.char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10.png"); }
-.char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12.png"); }
-.char-sheet .dice-wrapper.d4 .d4, .char-sheet .dice-wrapper.d4\+1 .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-red.png"); }
-.char-sheet .dice-wrapper.d6 .d6, .char-sheet .dice-wrapper.d6\+1 .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-red.png"); }
-.char-sheet .dice-wrapper.d8 .d8, .char-sheet .dice-wrapper.d8\+1 .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-red.png"); }
-.char-sheet .dice-wrapper.d10 .d10, .char-sheet .dice-wrapper.d10\+1 .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-red.png"); }
-.char-sheet .dice-wrapper.d12 .d12, .char-sheet .dice-wrapper.d12\+1 .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-red.png"); }
+.swade-char-sheet .dice-wrapper { display: contents; }
+.swade-char-sheet .dice { background-size: contain; background-repeat: no-repeat; background-position: top center; }
+.swade-char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4.png"); }
+.swade-char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6.png"); }
+.swade-char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8.png"); }
+.swade-char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10.png"); }
+.swade-char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12.png"); }
+.swade-char-sheet .dice-wrapper.d4 .d4, .swade-char-sheet .dice-wrapper.d4\+1 .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-red.png"); }
+.swade-char-sheet .dice-wrapper.d6 .d6, .swade-char-sheet .dice-wrapper.d6\+1 .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-red.png"); }
+.swade-char-sheet .dice-wrapper.d8 .d8, .swade-char-sheet .dice-wrapper.d8\+1 .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-red.png"); }
+.swade-char-sheet .dice-wrapper.d10 .d10, .swade-char-sheet .dice-wrapper.d10\+1 .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-red.png"); }
+.swade-char-sheet .dice-wrapper.d12 .d12, .swade-char-sheet .dice-wrapper.d12\+1 .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-red.png"); }
 
-.char-sheet .flavor {
-    border: 3px double black; border-radius: 10px;
+.swade-char-sheet .flavor {
+    border: 4px double black; border-radius: 10px;
     grid-area: flavor;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -79,12 +82,12 @@
         "char-label value";
     padding: 10px;
 }
-.char-sheet .flavor .char-label { font-weight: 800; padding-top: 5px; }
-.char-sheet .flavor div#label-name { grid-column: 1 / 3; }
-.char-sheet .flavor div#label-name h3 { text-align: left; }
-.char-sheet .flavor .value { border-bottom: solid 1px rgba(0,0,0,0.3); margin-bottom: 7px; }
+.swade-char-sheet .flavor .char-label { font-weight: 800; padding-top: 5px; }
+.swade-char-sheet .flavor div#label-name { grid-column: 1 / 3; }
+.swade-char-sheet .flavor div#label-name h3 { text-align: left; }
+.swade-char-sheet .flavor .value { border-bottom: solid 1px var(--swade-underline-color); margin-bottom: 7px; }
 
-.char-sheet .attributes {
+.swade-char-sheet .attributes {
     grid-area: attributes;
     display: grid;
     grid-template-columns: repeat( 5, 1fr ) 3fr 1fr;
@@ -92,21 +95,24 @@
     grid-template-areas:
         "d4 d6 d8 d10 d12 char-label value";
 }
-.char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
-.char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
+.swade-char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
+.swade-char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
 
-.char-sheet .pp {
+.swade-char-sheet .pp {
     grid-area: pp;
     display: grid;
+    border-left: 1px solid var(--swade-underline-color);
+    padding-left: 5px;
     justify-items: stretch;
+    align-items: start;
     align-content: center;
     grid-template-columns: 2fr;
-    grid-template-rows: 2fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
         "pp-header"
         "pp-values";
 }
-.char-sheet .pp .pp-values
+.swade-char-sheet .pp .pp-values
 {
     grid-area: pp-values;
     display: grid;
@@ -117,22 +123,23 @@
     grid-template-areas:
         "pp-check pp-value"
 }
-.char-sheet .pp .pp-header { align-self: start; justify-self: center; font-weight: 800; writing-mode: vertical-rl; text-orientation: mixed; padding-bottom: 1em; }
-.char-sheet .pp .pp-values .pp-check { border: 1px solid black; text-align: center; }
-.char-sheet .pp .pp-values .pp-value { writing-mode: vertical-rl; text-orientation: mixed; }
+.swade-char-sheet .pp .pp-header { align-self: start; justify-self: start; font-weight: 800; writing-mode: vertical-rl; text-orientation: mixed; padding-bottom: 1em; }
+.swade-char-sheet .pp .pp-values .pp-check { border: 1px solid black; text-align: center; }
+.swade-char-sheet .pp .pp-values .pp-value { writing-mode: vertical-rl; text-orientation: mixed; }
 
-
-.char-sheet .skills {
+.swade-char-sheet .skills {
     grid-area: skills;
-    dislay: grid;
+    display: grid;
+    align-self: start;
+    align-content: center;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
         "skill-header"
         "skill-details";
 }
-.char-sheet .skill-header { align-self: center; justify-self: center; }
-.char-sheet .skill-details {
+.swade-char-sheet .skill-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); }
+.swade-char-sheet .skill-details {
     grid-area: skill-details;
     display: grid;
     grid-template-columns: repeat( 5, 1fr ) 3fr 1fr 1fr;
@@ -140,11 +147,11 @@
     grid-template-areas:
         "d4 d6 d8 d10 d12 char-label attribute value";
 }
-.char-sheet .skills .char-label { font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: end; max-height: 1.75em; white-space: nowrap; margin-bottom: 7px; }
-.char-sheet .skills .linked-attr { font-weight: normal; font-size: 75%; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: end; margin-bottom: 7px; }
-.char-sheet .skills .value { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: end; margin-bottom: 7px; }
+.swade-char-sheet .skills .char-label { font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: end; max-height: 1.75em; white-space: nowrap; margin-bottom: 7px; }
+.swade-char-sheet .skills .linked-attr { font-weight: normal; font-size: 75%; border-bottom: 1px solid var(--swade-underline-color); align-self: end; margin-bottom: 7px; }
+.swade-char-sheet .skills .value { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: end; margin-bottom: 7px; }
 
-.char-sheet .derived-stats {
+.swade-char-sheet .derived-stats {
     grid-area: derived-stats;
     display: grid;
     justify-items: center;
@@ -156,34 +163,42 @@
     grid-template-areas:
         "pace parry toughness";
 }
-.char-sheet .derived-stats .derived-labels { display: contents; }
-.char-sheet .derived-stats .derived-labels div { font-size: 125%; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.3); align-self: center; }
+.swade-char-sheet .derived-stats .derived-labels { display: contents; }
+.swade-char-sheet .derived-stats .derived-labels div { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
 
-.char-sheet .hindrances {
+.swade-char-sheet .hindrances {
     grid-area: hindrances;
-    dislay: grid;
+    display: grid;
+    border: 1px solid black;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
         "hindrances-header"
         "hindrances-details";
 }
-.char-sheet .hindrances-header { align-self: center; justify-self: center; }
-.char-sheet .hindrances-details { font-size: 100%; }
+.swade-char-sheet .hindrances-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); border-radius: 10px 10px 0 0; margin-top: -1px; }
+.swade-char-sheet .hindrances-details { font-size: 100%; padding-left: 5px; padding-right: 5px; }
 
-.char-sheet .edges {
+.swade-char-sheet .edges {
     grid-area: edges;
-    dislay: grid;
+    display: grid;
+    border: 1px solid black;
+    border-top: none;
+    border-radius: 0px 0px 10px 10px;
+    margin-top: -10px;
+    padding-top: 15px;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas:
         "edges-header"
         "edges-details";
 }
-.char-sheet .edges-header { align-self: center; justify-self: center; }
-.char-sheet .edges-details { font-size: 100%; }
+.swade-char-sheet .edges-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); }
+.swade-char-sheet .edges-details { font-size: 100%; padding-left: 5px; padding-right: 5px; padding-bottom: 5px; }
 
-.char-sheet .health {
+.swade-char-sheet .health {
     grid-area: health;
     display: grid;
     justify-items: center;
@@ -195,14 +210,54 @@
     padding: 10px;
     font-weight: 800;
 }
-.char-sheet .health .checkoff {
+.swade-char-sheet .health .checkoff {
     /** font-color: red; **/
 }
-.char-sheet .health .checkoff::after { content: '&#x2718;'; color: var(--check-color); font-weight: 800; font-size: 125%; margin-left: -1em; }
+.swade-char-sheet .health .checkoff::after { content: '&#x2718;'; color: var(--swade-marked-color); font-weight: 800; font-size: 125%; margin-left: -1em; }
+
+.swade-char-sheet .powers {
+    grid-area: powers;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "powers-header"
+        "powers-details";
+}
+.swade-char-sheet .powers-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 2 / span 2; }
+
+.swade-char-sheet .powers:not(.powers-simple) .powers-details {
+    grid-area: powers;
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr 2fr 4fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "power-name power-pp power-range power-duration power-effect"
+}
+.swade-char-sheet .powers:not(.powers-simple) .powers-details div:nth-child(-n+5) { font-weight: 800; }
+.swade-char-sheet .powers:not(.powers-simple) .powers-details > div { border-bottom: 1px solid var(--swade-underline-color); }
+.swade-char-sheet .powers:not(.powers-simple) .powers-details .power-pp { text-align: center; }
+.swade-char-sheet .powers:not(.powers-simple) .powers-details .power-range { text-align: center; }
+.swade-char-sheet .powers:not(.powers-simple) .powers-details .power-duration { text-align: center; }
+
+.swade-char-sheet .gear {
+    grid-area: gear;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr auto;
+    grid-template-areas:
+        "gear-header gear-header gear-header gear-header gear-header gear-header"
+        "empty-left gear-funds-label gear-funds gear-weight-label gear-weight empty-right"
+        "gear-details gear-details gear-details gear-details gear-details gear-details";
+}
+.swade-char-sheet .gear .gear-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 1 / span 6; }
+.swade-char-sheet .gear .char-label  { font-weight: 800; justify-self: end; }
+.swade-char-sheet .gear .value { border-bottom: 1px solid var(--swade-underline-color); padding-left: 1em; margin-bottom: 1em; }
+.swade-char-sheet .gear .gear-details { grid-column: 1 / span 6; }
 
 /*
 @media (min-width: 1400px) {
-    .char-sheet {
+    .swade-char-sheet {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas:
             "flavor attributes attributes derived-stats"
