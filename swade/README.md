@@ -1,2 +1,3 @@
-# kanka
+# Kanka
+
 Templates and such for kanka
