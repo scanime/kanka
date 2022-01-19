@@ -1,285 +1,461 @@
-.swade-default {
-  --swade-marked-color: red;
-  --swade-header-bg-color: rgba(128,128,128,0.5);
-  --swade-header-border-color: black;
-  --swade-underline-color: rgba(0,0,0,0.3);
-  --swade-border-color: black;
-}
-.swade-dark {
-  --swade-marked-color: red;
-  --swade-header-bg-color: rgba(128,128,128,0.5);
-  --swade-header-border-color: white;
-  --swade-underline-color: rgba(255,255,255,0.3);
-  --swade-border-color: white;
-}
-
-.swade-char-sheet {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "flavor attributes"
-        "skills derived-stats"
-        "skills hindrances"
-        "skills edges"
-        "health health"
-        "powers powers"
-        "weapons weapons"
-        "gear gear";
-    grid-gap: 10px;
-    max-width: 1000px;
-    padding: 10px;
-    justify-content: center;
-}
-.swade-char-sheet.with-pp {
-    display: grid;
-    grid-template-columns: 1fr 1fr 40px;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "flavor attributes pp"
-        "skills derived-stats pp"
-        "skills hindrances pp"
-        "skills edges pp"
-        "health health pp"
-        "powers powers pp"
-        "weapons weapons pp"
-        "gear gear pp";
-    grid-gap: 10px;
-    max-width: 1000px;
-    padding: 10px;
-    justify-content: center;
-}
-.swade-char-sheet h3 { margin: 0px; padding: 5px; text-align: center; text-transform: uppercase; font-size: 150%; }
-.swade-char-sheet br { content: "A"!important; display: block !important; margin-bottom: 0.5em !important; border-bottom: 1px solid var(--swade-underline-color); margin-top: 0.5em!important; }
-
-.swade-char-sheet .dice-wrapper { display: contents; }
-.swade-char-sheet .dice { background-size: contain; background-repeat: no-repeat; background-position: top center; }
-.swade-char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4.png"); }
-.swade-char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6.png"); }
-.swade-char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8.png"); }
-.swade-char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10.png"); }
-.swade-char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12.png"); }
-.swade-dark .swade-char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-white.png"); }
-.swade-dark .swade-char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-white.png"); }
-.swade-dark .swade-char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-white.png"); }
-.swade-dark .swade-char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-white.png"); }
-.swade-dark .swade-char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-white.png"); }
-
-.swade-char-sheet .dice-wrapper.d4 .d4, .swade-char-sheet .dice-wrapper.d4\+1 .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-red.png"); }
-.swade-char-sheet .dice-wrapper.d6 .d6, .swade-char-sheet .dice-wrapper.d6\+1 .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-red.png"); }
-.swade-char-sheet .dice-wrapper.d8 .d8, .swade-char-sheet .dice-wrapper.d8\+1 .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-red.png"); }
-.swade-char-sheet .dice-wrapper.d10 .d10, .swade-char-sheet .dice-wrapper.d10\+1 .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-red.png"); }
-.swade-char-sheet .dice-wrapper.d12 .d12, .swade-char-sheet .dice-wrapper.d12\+1 .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-red.png"); }
-
-.swade-char-sheet .flavor {
-    border: 4px double var(--swade-border-color); border-radius: 10px;
-    grid-area: flavor;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "char-label value";
-    padding: 10px;
-}
-.swade-char-sheet .flavor .char-label { font-weight: 800; padding-top: 5px; }
-.swade-char-sheet .flavor div#label-name { grid-column: 1 / 3; }
-.swade-char-sheet .flavor div#label-name h3 { text-align: left; }
-.swade-char-sheet .flavor .value { border-bottom: solid 1px var(--swade-underline-color); margin-bottom: 7px; }
-
-.swade-char-sheet .attributes {
-    grid-area: attributes;
-    display: grid;
-    grid-template-columns: repeat( 5, 1fr ) 3fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "d4 d6 d8 d10 d12 char-label value";
-}
-.swade-char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
-.swade-char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
-
-.swade-char-sheet .pp {
-    grid-area: pp;
-    display: grid;
-    border-left: 1px solid var(--swade-underline-color);
-    padding-left: 5px;
-    justify-items: stretch;
-    align-items: start;
-    align-content: center;
-    grid-template-columns: 2fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-        "pp-header"
-        "pp-values";
-}
-.swade-char-sheet .pp .pp-values
-{
-    grid-area: pp-values;
-    display: grid;
-    justify-items: stretch;
-    align-content: center;
-    grid-template-columns: 2fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "pp-check pp-value"
-}
-.swade-char-sheet .pp .pp-header { align-self: start; justify-self: start; font-weight: 800; writing-mode: vertical-rl; text-orientation: mixed; padding-bottom: 1em; }
-.swade-char-sheet .pp .pp-values .pp-check { border: 1px solid var(--swade-border-color); text-align: center; }
-.swade-char-sheet .pp .pp-values .pp-value { writing-mode: vertical-rl; text-orientation: mixed; }
-
-.swade-char-sheet .skills {
-    grid-area: skills;
-    display: grid;
-    align-self: start;
-    align-content: center;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "skill-header"
-        "skill-details";
-}
-.swade-char-sheet .skill-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); }
-.swade-char-sheet .skill-details {
-    grid-area: skill-details;
-    display: grid;
-    grid-template-columns: repeat( 5, 1fr ) 3fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "d4 d6 d8 d10 d12 char-label attribute value";
-}
-.swade-char-sheet .skills .char-label { font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: end; max-height: 1.75em; white-space: nowrap; margin-bottom: 7px; }
-.swade-char-sheet .skills .linked-attr { font-weight: normal; font-size: 75%; border-bottom: 1px solid var(--swade-underline-color); align-self: end; margin-bottom: 7px; }
-.swade-char-sheet .skills .value { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: end; margin-bottom: 7px; }
-
-.swade-char-sheet .derived-stats {
-    grid-area: derived-stats;
-    display: grid;
-    justify-items: center;
-    border-top: 3px double var(--swade-border-color);
-    padding-top: 0.5em;
-    margin-top: 0.5em;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "pace parry toughness";
-}
-.swade-char-sheet .derived-stats.size-4 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-        "pace parry toughness custom";
-}
-.swade-char-sheet .derived-stats .derived-labels { display: contents; }
-.swade-char-sheet .derived-stats .derived-labels div { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
-
-.swade-char-sheet .hindrances {
-    grid-area: hindrances;
-    display: grid;
-    border: 1px solid var(--swade-border-color);
-    border-bottom: none;
-    border-radius: 10px 10px 0px 0px;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "hindrances-header"
-        "hindrances-details";
-}
-.swade-char-sheet .hindrances-header { align-self: start; justify-self: stretch; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); border-radius: 10px 10px 0 0; }
-.swade-char-sheet .hindrances-details { font-size: 100%; padding-left: 5px; padding-right: 5px; }
-
-.swade-char-sheet .edges {
-    grid-area: edges;
-    display: grid;
-    border: 1px solid var(--swade-border-color);
-    border-top: none;
-    border-radius: 0px 0px 10px 10px;
-    margin-top: -10px;
-    padding-top: 15px;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "edges-header"
-        "edges-details";
-}
-.swade-char-sheet .edges-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); }
-.swade-char-sheet .edges-details { font-size: 100%; padding-left: 5px; padding-right: 5px; padding-bottom: 5px; }
-
-.swade-char-sheet .health {
-    grid-area: health;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: auto;
-    grid-auto-flow: column;
-    grid-template-rows: 1fr;
-    border: 3px double var(--swade-border-color);
-    border-radius: 10px;
-    padding: 10px;
-    font-weight: 800;
-}
-.swade-char-sheet .health .checkoff {
-    /** font-color: red; **/
-}
-.swade-char-sheet .health .checkoff::after { content: '&#x2718;'; color: var(--swade-marked-color); font-weight: 800; font-size: 125%; margin-left: -1em; }
-
-.swade-char-sheet .powers {
-    grid-area: powers;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "powers-header"
-        "powers-details";
-}
-.swade-char-sheet .powers-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 2 / span 2; }
-
-.swade-char-sheet .powers:not(.powers-simple) .powers-details {
-    grid-area: powers;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1.5fr 1.5fr 5fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "power-name power-pp power-range power-duration power-effect"
-}
-.swade-char-sheet .powers:not(.powers-simple) .powers-details div:nth-child(-n+5) { font-weight: 800; }
-.swade-char-sheet .powers:not(.powers-simple) .powers-details > div { border-bottom: 1px solid var(--swade-underline-color); }
-.swade-char-sheet .powers:not(.powers-simple) .powers-details .power-pp { text-align: center; }
-.swade-char-sheet .powers:not(.powers-simple) .powers-details .power-range { text-align: center; }
-.swade-char-sheet .powers:not(.powers-simple) .powers-details .power-duration { text-align: center; }
-
-.swade-char-sheet .weapons {
-    grid-area: weapons;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr auto;
-    grid-template-areas:
-        "weapons-header"
-        "weapons-details";
-}
-.swade-char-sheet .weapons-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 1 / span 3; }
-.swade-char-sheet .weapons .weapons-details {
-    grid-area: weapons;
-    display: grid;
-    grid-column: 1 / span 3;
-    grid-template-columns: 2fr 1.5fr 1fr 1.5fr 1fr 1fr 4fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "weapon-name weapon-range weapon-rof weapon-dmg weapon-shots weapon-wt weapon-notes";
-}
-.swade-char-sheet .weapons .weapons-details div:nth-child(-n+7) { font-weight: 800; }
-.swade-char-sheet .weapons .weapons-details > div { border-bottom: 1px solid var(--swade-underline-color); }
-.swade-char-sheet .weapons .weapons-details div { text-align: center; }
-.swade-char-sheet .weapons .weapons-details .weapon-name { text-align: left; }
-.swade-char-sheet .weapons .weapons-details .weapon-notes { text-align: left; }
-
-.swade-char-sheet .gear {
-    grid-area: gear;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1.5fr 1fr auto;
-    grid-template-areas:
-        "gear-header gear-header gear-header gear-header gear-header gear-header"
-        "empty-left gear-funds-label gear-funds gear-weight-label gear-weight empty-right"
-        "gear-details gear-details gear-details gear-details gear-details gear-details";
-}
-.swade-char-sheet .gear .gear-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 1 / span 6; }
-.swade-char-sheet .gear .char-label  { font-weight: 800; justify-self: end; }
-.swade-char-sheet .gear .value { border-bottom: 1px solid var(--swade-underline-color); padding-left: 1em; margin-bottom: 1em; }
-.swade-char-sheet .gear .gear-details { grid-column: 1 / span 6; }
+@if( $_dodarkmode == "true" )
+<div class="swade-dark">
+@else
+<div class="swade-default">
+@endif
+    @if( $Max_PP > 0 )
+    <div class="swade-char-sheet with-pp">
+    @else
+    <div class="swade-char-sheet">
+    @endif
+        <div class="flavor">
+            <div id="label-name"><h3>{{ $Name }}</h3></div>
+            <div class="char-label">Race</div><div class="value">{{ $Race }}</div>
+            <div class="char-label">Rank</div>
+            <div class="value">
+                {{ $Rank }}
+                @if( $Advances > 0 )
+                    &nbsp;({{ $Advances }}
+                    @if( $Advances == 1 )
+                        advance)
+                    @else
+                        advances)
+                    @endif
+                @endif
+            </div>
+            <div class="char-label">Bennies</div><div class="value">{{ $Bennies }}</div>
+            @isset( $Custom_Flavor_Stat01_Label ) @if( $Custom_Flavor_Stat01_Label !== "" )<div class="char-label">{{ $Custom_Flavor_Stat01_Label }}</div><div class="value">{{ $Custom_Flavor_Stat01_Value }}</div>@endif @endisset
+            @isset( $Custom_Flavor_Stat02_Label ) @if( $Custom_Flavor_Stat02_Label !== "" )<div class="char-label">{{ $Custom_Flavor_Stat02_Label }}</div><div class="value">{{ $Custom_Flavor_Stat02_Value }}</div>@endif @endisset
+            @isset( $Custom_Flavor_Stat03_Label ) @if( $Custom_Flavor_Stat03_Label !== "" )<div class="char-label">{{ $Custom_Flavor_Stat03_Label }}</div><div class="value">{{ $Custom_Flavor_Stat03_Value }}</div>@endif @endisset
+            <div class="char-label">Size</div><div class="value">{{ $Size }}</div>
+        </div>
+        <div class="attributes">
+            <div class="dice-wrapper {{ $Agility }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Agility</div><div class="value">{{ $Agility }}</div></div>
+            <div class="dice-wrapper {{ $Smarts }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Smarts</div><div class="value">{{ $Smarts }}</div></div>
+            <div class="dice-wrapper {{ $Spirit }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Spirit</div><div class="value">{{ $Spirit }}</div></div>
+            <div class="dice-wrapper {{ $Strength }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Strength</div><div class="value">{{ $Strength }}</div></div>
+            <div class="dice-wrapper {{ $Vigor }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Vigor</div><div class="value">{{ $Vigor }}</div></div>
+        </div>
+        @isset( $Max_PP ) @if( $Max_PP > 0 )
+            <div class="pp">
+                <div class="pp-header">Power Points</div>
+                <div class="pp-values">
+                    @for( $i = 1; $i <= $Max_PP; ++$i )
+                        <div class="pp-check">
+                            @if( $i <= $Max_PP - $PP )
+                                &#x2718;
+                            @else
+                                &nbsp;
+                            @endif
+                        </div>
+                        <div class="pp-value">
+                            @if( $i == $Max_PP )
+                                {{ $i }}
+                            @elseif( $i % 5 == 0 )
+                                {{ $i }}
+                            @else
+                                &nbsp;
+                            @endif
+                        </div>
+                    @endfor
+                </div>
+            </div>
+        @endif @endisset
+        <div class="skills">
+            <div class="skill-header"><h3>Skills</h3></div>
+            <div class="skill-details">
+                @if( $_alphabetize_skills !== "true" )
+                    <div id="sk_athletics" class="dice-wrapper {{ $Sk_Athletics }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Athletics</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Athletics }}</div></div>
+                    <div id="sk_common_knowledge" class="dice-wrapper {{ $Sk_Common_Knowledge }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Common Knowledge</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Common_Knowledge }}</div></div>
+                    <div id="sk_notice" class="dice-wrapper {{ $Sk_Notice }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Notice</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Notice }}</div></div>
+                    <div id="sk_persuasion" class="dice-wrapper {{ $Sk_Persuasion }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Persuasion</div><div class="linked-attr">(Spi.)</div><div class="value">{{ $Sk_Persuasion }}</div></div>
+                    <div id="sk_stealth" class="dice-wrapper {{ $Sk_Stealth }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Stealth</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Stealth }}</div></div>
+                @endif
+                @isset( $Sk_Academics ) @if( $Sk_Academics !== "" )
+                    <div id="sk_academics" class="dice-wrapper {{ $Sk_Academics }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Academics</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Academics }}</div></div>
+                @endif @endisset
+                @if( $_alphabetize_skills == "true" )
+                    <div id="sk_athletics" class="dice-wrapper {{ $Sk_Athletics }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Athletics</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Athletics }}</div></div>
+                @endif
+                @isset( $Sk_Battle ) @if( $Sk_Battle !== "" )
+                    <div class="dice-wrapper {{ $Sk_Battle }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Battle</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Battle }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Boating ) @if( $Sk_Boating !== "" )
+                    <div class="dice-wrapper {{ $Sk_Boating }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Boating</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Boating }}</div></div>
+                @endif @endisset
+                @if( $_alphabetize_skills == "true" )
+                    <div id="sk_common_knowledge" class="dice-wrapper {{ $Sk_Common_Knowledge }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Common Knowledge</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Common_Knowledge }}</div></div>
+                @endif
+                @isset( $Sk_Driving ) @if( $Sk_Driving !== "" )
+                    <div class="dice-wrapper {{ $Sk_Driving }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Driving</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Driving }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Electronics ) @if( $Sk_Electronics !== "" )
+                    <div class="dice-wrapper {{ $Sk_Electronics }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Electronics</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Electronics }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Faith ) @if( $Sk_Faith !== "" )
+                    <div class="dice-wrapper {{ $Sk_Faith }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Faith</div><div class="linked-attr">(Spi.)</div><div class="value">{{ $Sk_Faith }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Fighting ) @if( $Sk_Fighting !== "" )
+                    <div class="dice-wrapper {{ $Sk_Fighting }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Fighting</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Fighting }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Focus ) @if( $Sk_Focus !== "" )
+                    <div class="dice-wrapper {{ $Sk_Focus }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Focus</div><div class="linked-attr">(Spi.)</div><div class="value">{{ $Sk_Focus }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Gambling ) @if( $Sk_Gambling !== "" )
+                    <div class="dice-wrapper {{ $Sk_Gambling }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Gambling</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Gambling }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Hacking ) @if( $Sk_Hacking !== "" )
+                    <div class="dice-wrapper {{ $Sk_Hacking }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Hacking</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Hacking }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Healing ) @if( $Sk_Healing !== "" )
+                    <div class="dice-wrapper {{ $Sk_Healing }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Healing</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Healing }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Intimidation ) @if( $Sk_Intimidation !== "" )
+                    <div class="dice-wrapper {{ $Sk_Intimidation }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Intimidation</div><div class="linked-attr">(Spi.)</div><div class="value">{{ $Sk_Intimidation }}</div></div>
+                @endif @endisset
+                @if( $_alphabetize_skills == "true" )
+                    <div id="sk_notice" class="dice-wrapper {{ $Sk_Notice }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Notice</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Notice }}</div></div>
+                @endif
+                @isset( $Sk_Occult ) @if( $Sk_Occult !== "" )
+                    <div class="dice-wrapper {{ $Sk_Occult }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Occult</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Occult }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Performance ) @if( $Sk_Performance !== "" )
+                    <div class="dice-wrapper {{ $Sk_Performance }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Performance</div><div class="linked-attr">(Spi.)</div><div class="value">{{ $Sk_Performance }}</div></div>
+                @endif @endisset
+                @if( $_alphabetize_skills == "true" )
+                    <div id="sk_persuasion" class="dice-wrapper {{ $Sk_Persuasion }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Persuasion</div><div class="linked-attr">(Spi.)</div><div class="value">{{ $Sk_Persuasion }}</div></div>
+                @endif
+                @isset( $Sk_Piloting ) @if( $Sk_Piloting !== "" )
+                    <div class="dice-wrapper {{ $Sk_Piloting }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Piloting</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Piloting }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Psionics ) @if( $Sk_Psionics !== "" )
+                    <div class="dice-wrapper {{ $Sk_Psionics }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Psionics</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Psionics }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Repair ) @if( $Sk_Repair !== "" )
+                    <div class="dice-wrapper {{ $Sk_Repair }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Repair</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Repair }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Research ) @if( $Sk_Research !== "" )
+                    <div class="dice-wrapper {{ $Sk_Research }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Research</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Research }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Science ) @if( $Sk_Science !== "" )
+                    <div class="dice-wrapper {{ $Sk_Science }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Science</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Science }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Shooting ) @if( $Sk_Shooting !== "" )
+                    <div class="dice-wrapper {{ $Sk_Shooting }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Shooting</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Shooting }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Spellcasting ) @if( $Sk_Spellcasting !== "" )
+                    <div class="dice-wrapper {{ $Sk_Spellcasting }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Spellcasting</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Spellcasting }}</div></div>
+                @endif @endisset
+                @if( $_alphabetize_skills == "true" )
+                    <div id="sk_stealth" class="dice-wrapper {{ $Sk_Stealth }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Stealth</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Stealth }}</div></div>
+                @endif
+                @isset( $Sk_Survival ) @if( $Sk_Survival !== "" )
+                    <div class="dice-wrapper {{ $Sk_Survival }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Survival</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Survival }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Taunt ) @if( $Sk_Taunt !== "" )
+                    <div class="dice-wrapper {{ $Sk_Taunt }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Taunt</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Taunt }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Thievery ) @if( $Sk_Thievery !== "" )
+                    <div class="dice-wrapper {{ $Sk_Thievery }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Thievery</div><div class="linked-attr">(Agi.)</div><div class="value">{{ $Sk_Thievery }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Weird_Science ) @if( $Sk_Weird_Science !== "" )
+                    <div class="dice-wrapper {{ $Sk_Weird_Science }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">Weird Science</div><div class="linked-attr">(Sma.)</div><div class="value">{{ $Sk_Weird_Science }}</div></div>
+                @endif @endisset
+                @isset( $Sk_Custom01_Name ) @isset( $Sk_Custom01_Rank ) @if( $Sk_Custom01_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom01_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom01_Name }}</div><div class="linked-attr">@if( $Sk_Custom01_Attr !== "" )({{ $Sk_Custom01_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom01_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom02_Name ) @isset( $Sk_Custom02_Rank ) @if( $Sk_Custom02_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom02_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom02_Name }}</div><div class="linked-attr">@if( $Sk_Custom02_Attr !== "" )({{ $Sk_Custom02_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom02_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom03_Name ) @isset( $Sk_Custom03_Rank ) @if( $Sk_Custom03_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom03_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom03_Name }}</div><div class="linked-attr">@if( $Sk_Custom03_Attr !== "" )({{ $Sk_Custom03_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom03_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom04_Name ) @isset( $Sk_Custom04_Rank ) @if( $Sk_Custom04_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom04_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom04_Name }}</div><div class="linked-attr">@if( $Sk_Custom04_Attr !== "" )({{ $Sk_Custom04_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom04_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom05_Name ) @isset( $Sk_Custom05_Rank ) @if( $Sk_Custom05_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom05_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom05_Name }}</div><div class="linked-attr">@if( $Sk_Custom05_Attr !== "" )({{ $Sk_Custom05_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom05_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom06_Name ) @isset( $Sk_Custom06_Rank ) @if( $Sk_Custom06_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom06_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom06_Name }}</div><div class="linked-attr">@if( $Sk_Custom06_Attr !== "" )({{ $Sk_Custom06_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom06_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom07_Name ) @isset( $Sk_Custom07_Rank ) @if( $Sk_Custom07_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom07_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom07_Name }}</div><div class="linked-attr">@if( $Sk_Custom07_Attr !== "" )({{ $Sk_Custom07_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom07_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom08_Name ) @isset( $Sk_Custom08_Rank ) @if( $Sk_Custom08_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom08_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom08_Name }}</div><div class="linked-attr">@if( $Sk_Custom08_Attr !== "" )({{ $Sk_Custom08_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom08_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom09_Name ) @isset( $Sk_Custom09_Rank ) @if( $Sk_Custom09_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom09_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom09_Name }}</div><div class="linked-attr">@if( $Sk_Custom09_Attr !== "" )({{ $Sk_Custom09_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom09_Rank }}</div></div>
+                @endif @endisset @endisset
+                @isset( $Sk_Custom10_Name ) @isset( $Sk_Custom10_Rank ) @if( $Sk_Custom10_Name !== "" )
+                    <div class="dice-wrapper {{ $Sk_Custom10_Rank }}"><div class="dice d4"></div><div class="dice d6"></div><div class="dice d8"></div><div class="dice d10"></div><div class="dice d12"></div><div class="char-label">{{ $Sk_Custom10_Name }}</div><div class="linked-attr">@if( $Sk_Custom10_Attr !== "" )({{ $Sk_Custom10_Attr }}.)@endif</div><div class="value">{{ $Sk_Custom10_Rank }}</div></div>
+                @endif @endisset @endisset
+            </div>
+        </div>
+        <div class="derived-stats">
+            <div>
+                <div class="char-label">Pace</div>
+                <div class="value">{{ $Pace }}</div>
+            </div>
+            <div>
+                <div class="char-label">Parry</div>
+                <div class="value">{{ $Parry }}</div>
+            </div>
+            <div>
+                <div class="char-label">Toughness</div>
+                <div class="value">{{ $Toughness }}</div>
+            </div>
+            @isset( $Custom_Derived_Stat01_Label ) @if( $Custom_Derived_Stat01_Label !== "" )
+                <div>
+                    <div class="char-label">{{ $Custom_Derived_Stat01_Label }} </div>
+                    <div class="value">{{ $Custom_Derived_Stat01_Value }}</div>
+                </div>
+            @endif @endisset
+            @isset( $Custom_Derived_Stat02_Label ) @if( $Custom_Derived_Stat02_Label !== "" )
+                <div>
+                    <div class="char-label">{{ $Custom_Derived_Stat02_Label }} </div>
+                    <div class="value">{{ $Custom_Derived_Stat02_Value }}</div>
+                </div>
+            @endif @endisset
+        </div>
+        <div class="hindrances">
+            <div class="hindrances-header"><h3>Hindrances</h3></div>
+            <div class="hindrances-details">
+                {!! $Hindrances !!}
+            </div>
+        </div>
+        <div class="edges">
+            <div class="edges-header"><h3>Edges</h3></div>
+            <div class="edges-details">
+                {!! $Edges !!}
+            </div>
+        </div>
+        @isset( $Powers_Multiline ) @if( $Powers_Multiline !== "" )
+        <div class="powers powers-simple">
+            <div class="powers-header"><h3>Powers</h3></div>
+            <div class="powers-details">
+                {!! $Powers_Multiline !!}
+            </div>
+        </div>
+        @endif @endisset
+        @isset( $Power01_Name ) @if( $Power01_Name != "" )
+        <div class="powers">
+            <div class="powers-header"><h3>Powers</h3></div>
+            <div class="powers-details">
+                <div class="power-name">Name</div>
+                <div class="power-pp">PP</div>
+                <div class="power-range">Range</div>
+                <div class="power-duration">Duration</div>
+                <div class="power-effect">Effect</div>
+                <div class="power-name">{{ $Power01_Name }}</div>
+                <div class="power-pp">@isset( $Power01_PP ){{ $Power01_PP }}@endisset</div>
+                <div class="power-range">@isset( $Power01_Range ){{ $Power01_Range }}@endisset</div>
+                <div class="power-duration">@isset( $Power01_Duration ){{ $Power01_Duration }}@endisset</div>
+                <div class="power-effect">@isset( $Power01_Effect ){{ $Power01_Effect }}@endisset</div>
+                @isset( $Power02_Name ) @if( $Power02_Name != "" )
+                    <div class="power-name">{{ $Power02_Name }}</div>
+                    <div class="power-pp">@isset( $Power02_PP ){{ $Power02_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power02_Range ){{ $Power02_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power02_Duration ){{ $Power02_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power02_Effect ){{ $Power02_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power03_Name ) @if( $Power03_Name != "" )
+                    <div class="power-name">{{ $Power03_Name }}</div>
+                    <div class="power-pp">@isset( $Power03_PP ){{ $Power03_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power03_Range ){{ $Power03_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power03_Duration ){{ $Power03_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power03_Effect ){{ $Power03_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power04_Name ) @if( $Power04_Name != "" )
+                    <div class="power-name">{{ $Power04_Name }}</div>
+                    <div class="power-pp">@isset( $Power04_PP ){{ $Power04_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power04_Range ){{ $Power04_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power04_Duration ){{ $Power04_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power04_Effect ){{ $Power04_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power05_Name ) @if( $Power05_Name != "" )
+                    <div class="power-name">{{ $Power05_Name }}</div>
+                    <div class="power-pp">@isset( $Power05_PP ){{ $Power05_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power05_Range ){{ $Power05_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power05_Duration ){{ $Power05_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power05_Effect ){{ $Power05_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power06_Name ) @if( $Power06_Name != "" )
+                    <div class="power-name">{{ $Power06_Name }}</div>
+                    <div class="power-pp">@isset( $Power06_PP ){{ $Power06_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power06_Range ){{ $Power06_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power06_Duration ){{ $Power06_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power06_Effect ){{ $Power06_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power07_Name ) @if( $Power07_Name != "" )
+                    <div class="power-name">{{ $Power07_Name }}</div>
+                    <div class="power-pp">@isset( $Power07_PP ){{ $Power07_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power07_Range ){{ $Power07_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power07_Duration ){{ $Power07_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power07_Effect ){{ $Power07_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power08_Name ) @if( $Power08_Name != "" )
+                    <div class="power-name">{{ $Power08_Name }}</div>
+                    <div class="power-pp">@isset( $Power08_PP ){{ $Power08_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power08_Range ){{ $Power08_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power08_Duration ){{ $Power08_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power08_Effect ){{ $Power08_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power09_Name ) @if( $Power09_Name != "" )
+                    <div class="power-name">{{ $Power09_Name }}</div>
+                    <div class="power-pp">@isset( $Power09_PP ){{ $Power09_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power09_Range ){{ $Power09_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power09_Duration ){{ $Power09_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power09_Effect ){{ $Power09_Effect }}@endisset</div>
+                @endif @endisset
+                @isset( $Power10_Name ) @if( $Power10_Name != "" )
+                    <div class="power-name">{{ $Power10_Name }}</div>
+                    <div class="power-pp">@isset( $Power10_PP ){{ $Power10_PP }}@endisset</div>
+                    <div class="power-range">@isset( $Power10_Range ){{ $Power10_Range }}@endisset</div>
+                    <div class="power-duration">@isset( $Power10_Duration ){{ $Power10_Duration }}@endisset</div>
+                    <div class="power-effect">@isset( $Power10_Effect ){{ $Power10_Effect }}@endisset</div>
+                @endif @endisset
+            </div>
+        </div>
+        @endif @endisset
+        <div class="health">
+            <div class="char-label">Fatigue ⟫</div>
+            @for( $i = 2; $i >= 1; $i-- )
+                <div class="fatigue-count">
+                    @if( $i > 2 - $Fatigue )
+                        <span class="checkoff">-{{ $i }}</span>
+                    @else
+                        -{{ $i }}
+                    @endif
+                </div>
+            @endfor
+            <div class="char-label">
+                @if( $Wounds > $Max_Wounds || $Fatigue > 2 )
+                    <span class="checkoff">Incap.</span>
+                @else
+                    Incap.
+                @endif
+            </div>
+            @for( $i = $Max_Wounds; $i >= 1; $i-- )
+                <div class="wound-count">
+                    @if( $i <= $Wounds )
+                        <span class="checkoff">-{{ $i }}</span>
+                    @else
+                        -{{ $i }}
+                    @endif
+                </div>
+            @endfor
+            <div class="char-label">⟪ Wounds</div>
+        </div>
+        @isset( $Weapon01_Name ) @if( $Weapon01_Name != "" )
+        <div class="weapons">
+            <div class="weapons-header"><h3>Weapons</h3></div>
+            <div class="weapons-details">
+                <div class="weapon-name">Name</div>
+                <div class="weapon-range">PP</div>
+                <div class="weapon-rof">RoF</div>
+                <div class="weapon-damage">Damage</div>
+                <div class="weapon-shots">Shots</div>
+                <div class="weapon-wt">Wt</div>
+                <div class="weapon-notes">Notes</div>
+                <div class="weapon-name">{{ $Weapon01_Name }}</div>
+                <div class="weapon-range">@isset( $Weapon01_Range ){{ $Weapon01_Range }}@endisset</div>
+                <div class="weapon-rof">@isset( $Weapon01_Rof ){{ $Weapon01_Rof }}@endisset</div>
+                <div class="weapon-damage">@isset( $Weapon01_Damage ){{ $Weapon01_Damage }}@endisset</div>
+                <div class="weapon-shots">@isset( $Weapon01_Shots ){{ $Weapon01_Shots }}@endisset</div>
+                <div class="weapon-wt">@isset( $Weapon01_Weight ){{ $Weapon01_Weight }}@endisset</div>
+                <div class="weapon-notes">@isset( $Weapon01_Notes ){{ $Weapon01_Notes }}@endisset</div>
+                @isset( $Weapon02_Name ) @if( $Weapon02_Name != "" )
+                    <div class="weapon-name">{{ $Weapon02_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon02_Range ){{ $Weapon02_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon02_Rof ){{ $Weapon02_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon02_Damage ){{ $Weapon02_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon02_Shots ){{ $Weapon02_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon02_Weight ){{ $Weapon02_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon02_Notes ){{ $Weapon02_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon03_Name ) @if( $Weapon03_Name != "" )
+                    <div class="weapon-name">{{ $Weapon03_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon03_Range ){{ $Weapon03_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon03_Rof ){{ $Weapon03_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon03_Damage ){{ $Weapon03_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon03_Shots ){{ $Weapon03_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon03_Weight ){{ $Weapon03_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon03_Notes ){{ $Weapon03_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon04_Name ) @if( $Weapon04_Name != "" )
+                    <div class="weapon-name">{{ $Weapon04_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon04_Range ){{ $Weapon04_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon04_Rof ){{ $Weapon04_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon04_Damage ){{ $Weapon04_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon04_Shots ){{ $Weapon04_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon04_Weight ){{ $Weapon04_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon04_Notes ){{ $Weapon04_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon05_Name ) @if( $Weapon05_Name != "" )
+                    <div class="weapon-name">{{ $Weapon05_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon05_Range ){{ $Weapon05_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon05_Rof ){{ $Weapon05_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon05_Damage ){{ $Weapon05_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon05_Shots ){{ $Weapon05_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon05_Weight ){{ $Weapon05_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon05_Notes ){{ $Weapon05_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon06_Name ) @if( $Weapon06_Name != "" )
+                    <div class="weapon-name">{{ $Weapon06_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon06_Range ){{ $Weapon06_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon06_Rof ){{ $Weapon06_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon06_Damage ){{ $Weapon06_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon06_Shots ){{ $Weapon06_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon06_Weight ){{ $Weapon06_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon06_Notes ){{ $Weapon06_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon07_Name ) @if( $Weapon07_Name != "" )
+                    <div class="weapon-name">{{ $Weapon07_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon07_Range ){{ $Weapon07_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon07_Rof ){{ $Weapon07_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon07_Damage ){{ $Weapon07_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon07_Shots ){{ $Weapon07_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon07_Weight ){{ $Weapon07_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon07_Notes ){{ $Weapon07_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon08_Name ) @if( $Weapon08_Name != "" )
+                    <div class="weapon-name">{{ $Weapon08_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon08_Range ){{ $Weapon08_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon08_Rof ){{ $Weapon08_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon08_Damage ){{ $Weapon08_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon08_Shots ){{ $Weapon08_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon08_Weight ){{ $Weapon08_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon08_Notes ){{ $Weapon08_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon09_Name ) @if( $Weapon09_Name != "" )
+                    <div class="weapon-name">{{ $Weapon09_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon09_Range ){{ $Weapon09_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon09_Rof ){{ $Weapon09_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon09_Damage ){{ $Weapon09_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon09_Shots ){{ $Weapon09_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon09_Weight ){{ $Weapon09_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon09_Notes ){{ $Weapon09_Notes }}@endisset</div>
+                @endif @endisset
+                @isset( $Weapon10_Name ) @if( $Weapon10_Name != "" )
+                    <div class="weapon-name">{{ $Weapon10_Name }}</div>
+                    <div class="weapon-range">@isset( $Weapon10_Range ){{ $Weapon10_Range }}@endisset</div>
+                    <div class="weapon-rof">@isset( $Weapon10_Rof ){{ $Weapon10_Rof }}@endisset</div>
+                    <div class="weapon-damage">@isset( $Weapon10_Damage ){{ $Weapon10_Damage }}@endisset</div>
+                    <div class="weapon-shots">@isset( $Weapon10_Shots ){{ $Weapon10_Shots }}@endisset</div>
+                    <div class="weapon-wt">@isset( $Weapon10_Weight ){{ $Weapon10_Weight }}@endisset</div>
+                    <div class="weapon-notes">@isset( $Weapon10_Notes ){{ $Weapon10_Notes }}@endisset</div>
+                @endif @endisset
+            </div>
+        </div>
+        @endif @endisset
+        <div class="gear">
+            <div class="gear-header"><h3>Gear</h3></div>
+            <div class="empty"></div><div class="char-label">Funds:</div><div class="gear-funds value">{{ $Funds }}</div><div class="char-label">Weight:</div><div class="gear-weight value">{{ $Weight }}</div><div class="empty"></div>
+            <div class="gear-details">
+                {!! $Gear !!}
+            </div>
+        </div>
+    </div>
+</div>
