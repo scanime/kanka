@@ -1,0 +1,54 @@
+:root {
+    --body-text: #3f4548;
+    --link-text: #296282;
+    --text-help: #3f4548;
+    --box-footer-border-top: rgba( 0, 0, 0, 0.5 );
+    --bg-gradient: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0.5));
+    --bg-parchment: url("https://raw.githubusercontent.com/scanime/kanka/main/css/fantasy%20parchment/parchment4.jpg");
+}
+/** Parchment backgrounds **/
+#app { background-image: var(--bg-parchment); background-position: right center; background-repeat: no-repeat; background-attachment: fixed; }
+.content-wrapper { background-image: var(--bg-parchment); background-position: right center; background-repeat: no-repeat; background-attachment: fixed; }
+div.entity-submenu .box, div.box-solid {border: 1px solid rgba(0,0,0,0.33);box-shadow: 0 0 5px #000;background-image: var(--bg-parchment); }
+div.box-body {background-color: rgba(255,255,255,0.5);}
+div.box.box-solid > div.box-header { background-image: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0.5)); border-bottom: 0; }
+#app > div > section.content > div.box { background-image: var(--bg-parchment); background-position: top center; box-shadow: 0 0 5px #000; }
+div.box.no-border.datagrid-filters > div { background-image: var(--bg-gradient); border-bottom: 0; }
+.box .box-footer { background-image: var(--bg-gradient); }
+
+/** Timelime **/
+.timeline>li>.timeline-item>.timeline-header { background-color: rgba(0,0,0,0); background-image: var(--bg-gradient); border-bottom: 0; }
+.timeline>li>.timeline-item>.timeline-body, .timeline>li>.timeline-item>.timeline-footer, div.box-footer { background-color: rgba(255,255,255,0.5); }
+.timeline>li>.timeline-item { background-image: var(--bg-parchment); background-position: top center; box-shadow: 0 0 5px #000; border: 1px solid rgba(0,0,0,0.33); }
+
+/** Navbar & Search **/
+.navbar-static-top { padding-bottom: 10px; background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/css/fantasy%20parchment/tear4.png"); background-size: auto 100%; }
+.main-header { background: none; }
+.sidebar-mini.sidebar-collapse .main-sidebar .main-header { background: inherit; }
+.main-header .navbar { background-color: unset!important; }
+.main-header .navbar .nav>li>a:hover, .main-header .navbar .sidebar-toggle:active, .main-header .navbar .sidebar-toggle:focus, .main-header .navbar .sidebar-toggle:hover { background-color: unset!important; text-shadow: 0 0 3px #fff, 0 0 5px #fff; }
+.main-header .navbar .nav .open>a { background-color: inherit; }
+.main-header .navbar .nav .open>a > img {box-shadow: 2px 2px 5px #fff, -2px -2px 5px #fff, -2px 2px 5px #fff, 2px -2px 5px #fff; }
+#live-search { border: 1px solid rgba(0,0,0,0.35); }
+div#live-search_listbox { box-shadow: 10px 10px 5px -5px rgb(0 0 0 / 51%); background-image: var(--bg-parchment); background-attachment: fixed; background-position: bottom left; }
+div#live-search_listbox > div.tt-dataset-entityList > a.list-group-item { background-color: rgba(255,255,255,0.5)!important; }
+
+.panel.panel-default.widget-preview { background-image: var(--bg-parchment); background-position: top center; box-shadow: 0 0 5px #000; border: 1px solid rgba(0,0,0,0.33); }
+
+.nav>li>a:active, .nav>li>a:focus, .nav>li>a:hover { background: rgba(255,255,255,0.25); }
+
+/** Lighten hover **/
+#app > div > section.content > div.row > div.col-md-3 > div > div.box-body > ul > li > a:hover, .table-hover>tbody>tr:hover { background-color: rgba(255,255,255,0.25); }
+
+/** add little glow to some links **/
+.content-wrapper a:not(.btn):not(.sidebar-toggle):not(.dropdown-toggle):not(.mention) { text-shadow: 0 0 3px #fff, 0 0 5px #fff; font-variant: small-caps; font-weight: 600; }
+.entity-header-text a { text-shadow: none!important; }
+.entity-tags > a { text-shadow: unset!important; }
+
+.sidebar-section-box { box-shadow: 0 0 10px #000; background-image: var(--bg-parchment); }
+.sidebar-section-box .sidebar-section-title { padding: 5px; }
+.sidebar-section-box .sidebar-section-title, .sidebar-section-box .sidebar-elements { background-color: rgba(255,255,255,0.5); }
+.sidebar-section-box .sidebar-elements { margin: 0; padding: 0 5px; }
+
+.table-striped>tbody>tr:nth-of-type(odd) {background-color: rgba(255,255,255,0.5); }
+.table-striped>tbody>tr:nth-of-type(even) {background-color: rgba(255,255,255,0.25); }
