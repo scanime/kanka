@@ -1,0 +1,46 @@
+:root {
+    --btn-default-border: rgba(0,0,0,0.33);
+    --btn-default-hover-border: rgba(0,0,0,0.5);
+    --btn-default-hover-text: white;
+    --btn-default-hover-background: unset;
+}
+.btn-default, .btn-primary, .btn-warning {
+    color: white;
+    background-color: unset;
+    text-shadow: -1px -1px rgb(0 0 0 / 50%), 1px 1px rgb(0 0 0 / 50%);
+    box-shadow: inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%);
+    background-size: cover;
+}
+.btn-primary {
+    border-color: rgba(54,127,169,0.5);
+}
+.btn-warning {
+    border-color: rgba(224,142,11,0.5);
+}
+.btn-default:hover, .btn-primary:hover, .btn-warning:hover {
+    background-color: unset;
+    box-shadow: inset 0 -2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%);
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+.btn-default:active, .btn-default.active, .btn-primary:active, .btn-primary.active, .btn-warning:active, .btn-warning.active {
+    background-color: unset;
+    box-shadow: inset 0 -2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%);
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary.active {
+    border-color: rgba(54,127,169,0.75);
+}
+.btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning.active {
+    border-color: rgba(224,142,11,0.75);
+}
+.btn-default {
+    background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/buttons-stone/stone.jpg)!important;
+}
+.btn-primary {
+    background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/buttons-stone/stone-primary.jpg)!important;
+}
+.btn-warning {
+    background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/buttons-stone/stone-warning-2.jpg)!important;
+}
