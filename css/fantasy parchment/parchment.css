@@ -32,9 +32,14 @@ div.box.no-border.datagrid-filters > div { background-image: var(--bg-gradient);
 .main-header .navbar .nav>li>a:hover, .main-header .navbar .sidebar-toggle:active, .main-header .navbar .sidebar-toggle:focus, .main-header .navbar .sidebar-toggle:hover { background-color: unset!important; text-shadow: 0 0 3px #fff, 0 0 5px #fff; }
 .main-header .navbar .nav .open>a { background-color: inherit; }
 .main-header .navbar .nav .open>a > img {box-shadow: 2px 2px 5px #fff, -2px -2px 5px #fff, -2px 2px 5px #fff, 2px -2px 5px #fff; }
+header > nav > form > span > input.typeahead.form-control { background: rgba(255,255,255,0.5); }
 #live-search { border: 1px solid rgba(0,0,0,0.35); }
 div#live-search_listbox { box-shadow: 10px 10px 5px -5px rgb(0 0 0 / 51%); background-image: var(--bg-parchment); background-attachment: fixed; background-position: bottom left; }
 div#live-search_listbox > div.tt-dataset-entityList > a.list-group-item { background-color: rgba(255,255,255,0.5)!important; }
+
+/** Edit entry **/
+#entity-form section.content > div.nav-tabs-custom > ul { background: none; }
+#entity-form section.content > div.nav-tabs-custom > div.tab-content { background-image: var(--bg-parchment); background-position: top center; box-shadow: 0 0 5px #000; }
 
 .panel.panel-default.widget-preview { background-image: var(--bg-parchment); background-position: top center; box-shadow: 0 0 5px #000; border: 1px solid rgba(0,0,0,0.33); }
 
