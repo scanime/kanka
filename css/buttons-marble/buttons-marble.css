@@ -10,6 +10,9 @@
     text-shadow: -1px 1px rgb(0 0 0 / 100%), 1px -1px rgb(0 0 0 / 50%);
     box-shadow: -2px -2px 10px rgb(0 0 0 / 50%) inset, 2px 2px 10px rgb(255 255 255 / 75%) inset!important;
 }
+.btn-default {
+    text-shadow: -1px 1px rgb(0 0 0 / 50%), 1px -1px rgb(255 255 255 / 50%);
+}
 .btn-primary {
     border-color: rgba(54,127,169,0.5);
 }
@@ -19,11 +22,14 @@
 .btn:hover, .btn:active {
     text-shadow: 1px -1px rgb(0 0 0 / 100%), -1px 1px rgb(0 0 0 / 50%);
 }
-.btn-default:hover, .btn-primary:hover, .btn-warning:hover, .btn-danger:hover {
+.btn-default:hover {
+    text-shadow: 1px -1px rgb(0 0 0 / 50%), -1px 1px rgb(255 255 255 / 50%);
+}
+.btn-default:hover, .btn-primary:hover, .btn-warning:hover, .btn-danger:hover, .btn-success:hover {
     background-color: unset;
     box-shadow: 2px 2px 10px rgb(0 0 0 / 50%) inset, -2px -2px 10px rgb(255 255 255 / 75%) inset!important;
 }
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary.active {
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-success:active {
     border-color: rgba(54,127,169,0.75);
 }
 .btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning.active {
