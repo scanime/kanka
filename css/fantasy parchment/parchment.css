@@ -38,6 +38,11 @@ div#live-search_listbox { box-shadow: 10px 10px 5px -5px rgb(0 0 0 / 51%); backg
 div#live-search_listbox > div.tt-dataset-entityList > a.list-group-item { background-color: rgba(255,255,255,0.5)!important; }
 
 /** Edit entry **/
+.nav-tabs-custom>.nav-tabs>li.active { }
+.nav-tabs-custom>.nav-tabs>li { border-top: none; background-image: var(--bg-parchment); background-position: top center; }
+.nav-tabs-custom>.nav-tabs>li>a { background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2),rgba(0,0,0,0.5)), var(--bg-parchment); }
+.nav-tabs-custom>.nav-tabs>li>a:hover { background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2),rgba(0,0,0,0.5)), var(--bg-parchment); }
+.nav-tabs-custom>.nav-tabs>li.active>a { background-image: var(--bg-parchment); }
 #entity-form section.content > div.nav-tabs-custom > ul { background: none; }
 #entity-form section.content > div.nav-tabs-custom > div.tab-content { background-image: var(--bg-parchment); background-position: top center; box-shadow: 0 0 5px #000; }
 
@@ -50,8 +55,9 @@ div#live-search_listbox > div.tt-dataset-entityList > a.list-group-item { backgr
 
 /** add little glow to some links **/
 .content-wrapper a:not(.btn):not(.sidebar-toggle):not(.dropdown-toggle):not(.mention) { text-shadow: 0 0 3px #fff, 0 0 5px #fff; font-variant: small-caps; font-weight: 600; }
-.entity-header-text a:not(.btn) { text-shadow: none!important; } { text-shadow: none!important; }
+.entity-header-text a:not(.btn) { text-shadow: none!important; }
 .entity-tags > a { text-shadow: unset!important; }
+.entity-submenu > .box-body > ul.nav > li > a > span.label[data-original-title="Boosted campaign feature"] { text-shadow: none; } /* no glowing boosted icon */
 
 .sidebar-section-box { box-shadow: 0 0 10px #000; background-image: var(--bg-parchment); }
 .sidebar-section-box .sidebar-section-title { padding: 5px; }
