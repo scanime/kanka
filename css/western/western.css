@@ -5,10 +5,67 @@
     --link-text: slategray;
     --text-help: #3f4548;
     --main-navbar-text: white;
-    --poster-bg: url(https://raw.githubusercontent.com/scanime/kanka/main/css/western/wanter-poster.jpg)
+    --poster-bg: url(https://raw.githubusercontent.com/scanime/kanka/main/css/western/wanted-poster.jpg); /* A wanter poster is when you thought you type wanted poster and somehow didn't */
+    --button-bg: url(https://raw.githubusercontent.com/scanime/kanka/main/css/western/wood-button.png);
 }
 
 h1, h2, h3, h4 { font-family: 'Arbutus', cursive; }
+
+.btn-default, .btn-primary, .btn-warning, .btn-danger, .btn-success {
+    background-color: unset;
+    text-shadow: -1px 1px rgb(0 0 0 / 100%), 1px -1px rgb(0 0 0 / 50%);
+    background-image: var(--button-bg);
+    background-size: cover;
+    color: white;
+    box-sizing: border-box;
+}
+.btn-default {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 50%), inset 2px 0 0 rgb(0 0 0 / 50%), inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%)!important;
+}
+.btn-default:hover, .btn-default:active {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 50%), inset 2px 0 0 rgb(0 0 0 / 50%), inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%)!important;
+    text-shadow: 1px -1px rgb(0 0 0 / 100%), -1px 1px rgb(0 0 0 / 50%);
+}
+
+.btn-warning {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 50%), inset 2px 0 0 rgb(0 0 0 / 50%), inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(224, 142, 11, 0.8)!important;
+    border-color: rgba(224,142,11,0.5);
+}
+.btn-warning:hover, .btn-warning:active {
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 50%), inset -2px 0 0 rgb(0 0 0 / 50%), inset 0 -2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(224, 142, 11, 1)!important;
+    text-shadow: 1px -1px rgb(0 0 0 / 100%), -1px 1px rgb(0 0 0 / 50%);
+    border-color: rgba(224,142,11,0.8);
+}
+
+.btn-danger {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 50%), inset 2px 0 0 rgb(0 0 0 / 50%), inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(170,74,36, 0.8)!important;
+    border-color: rgba(170,74,36,0.5);
+}
+.btn-danger:hover, .btn-danger:active {
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 50%), inset -2px 0 0 rgb(0 0 0 / 50%), inset 0 -2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(170,74,36, 1)!important;
+    text-shadow: 1px -1px rgb(0 0 0 / 100%), -1px 1px rgb(0 0 0 / 50%);
+    border-color: rgba(170,74,36,0.8);
+}
+
+.btn-success {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 50%), inset 2px 0 0 rgb(0 0 0 / 50%), inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(42,178,123, 0.8)!important;
+    border-color: rgba(42,178,123,0.5);
+}
+.btn-success:hover, .btn-success:active {
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 50%), inset -2px 0 0 rgb(0 0 0 / 50%), inset 0 -2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(42,178,123, 1)!important;
+    text-shadow: 1px -1px rgb(0 0 0 / 100%), -1px 1px rgb(0 0 0 / 50%);
+    border-color: rgba(42,178,123,0.8);
+}
+
+.btn-primary {
+    box-shadow: inset 0 -2px 0 rgb(0 0 0 / 50%), inset 2px 0 0 rgb(0 0 0 / 50%), inset 0 2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(54,127,169, 0.8)!important;
+    border-color: rgba(54,127,169,0.5);
+}
+.btn-primary:hover, .btn-primary:active {
+    box-shadow: inset 0 2px 0 rgb(0 0 0 / 50%), inset -2px 0 0 rgb(0 0 0 / 50%), inset 0 -2px 0 rgb(255 255 255 / 50%), 0 3px 3px rgb(0 0 0 / 30%), 0 0 5px 2px rgb(0 0 0 / 20%), inset -2px 0 0 rgb(255 255 255 / 50%), inset 0 0 0 3px rgba(54,127,169, 1)!important;
+    text-shadow: 1px -1px rgb(0 0 0 / 100%), -1px 1px rgb(0 0 0 / 50%);
+    border-color: rgba(54,127,169,0.8);
+}
 
 .entity-name, .entity-name-icons { font-family: 'Rye'; text-shadow: 4px 4px 2px #2c2e38, 1px 1px 1px #000, -1px -1px 1px #fff; color: slategray; letter-spacing: 0.05em; }
 ol.entity-breadcrumb, ol.entity-breadcrumb li a { font-family: 'Arbutus'; letter-spacing: 0.1em; }
@@ -71,7 +128,27 @@ div.entity-submenu .box, div.box-solid {border: none;box-shadow: 0 0 5px #000, 4
 #live-search { border: 1px solid rgba(0,0,0,0.35)!important; color: black; }
 div#live-search_listbox { box-shadow: 10px 10px 5px -5px rgb(0 0 0 / 51%); background-image: var(--poster-bg); background-attachment: fixed; background-position: bottom left; }
 div#live-search_listbox > div.tt-dataset-entityList > a.list-group-item { background-color: rgba(255,255,255,0.5)!important; }
+#live-search::placeholder, #live-search:-ms-input-placeholder, #live-search::-ms-input-placeholder {
+  color: whitesmoke;
+  opacity: 1;
+}
+li.dropdown.notifications-menu > a, .navbar > a.sidebar-toggle { color: rgba(0,0,0,0.85)!important; text-shadow: 2px 2px 3px rgb(255 255 255 / 50%); }
 
 .table-striped>tbody>tr:nth-of-type(odd) {background-color: rgba(255,255,255,0.5); }
 .table-striped>tbody>tr:nth-of-type(even) {background-color: rgba(255,255,255,0.25); }
 .table-hover tbody tr:hover { background: linear-gradient(90deg, rgba(108,67,44,0.75) 0%, rgba(108,67,44,0) 10%, rgba(108,67,44,0) 90%, rgba(108,67,44,0.75) 100%); }
+
+/* Cool nail */
+.box-header>.box-tools, .box-header>h3.box-title { padding-top: 30px; }
+.entity-note .box-header.with-border { display: inherit; }
+.box-header::before {
+    background-image:url(https://raw.githubusercontent.com/scanime/kanka/main/css/western/nail2.png);
+    display: block;
+    content: "";
+    height: 30px;
+    margin-bottom: -30px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    margin-left:50%;
+    margin-top: -30px;
+}
