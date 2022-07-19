@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=UnifrakturMaguntia&display=swap');
+
+/*
+font-family: 'Lora', serif;
+font-family: 'UnifrakturMaguntia', cursive;
+*/
+
+section.content > div.dashboard-widgets { font-family: 'Lora', serif; }
+section.content > div.dashboard-widgets div.widget.widget-header:first-of-type > h3 { font-family: 'UnifrakturMaguntia', cursive; font-size: 56px; }
+section.content > div.dashboard-widgets h3.panel-title > a { font-family: 'Lora', serif; font-weight: 800; font-size: 150%; }
