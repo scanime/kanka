@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=UnifrakturMaguntia&display=swap');
 
 /*
@@ -7,24 +6,43 @@ font-family: 'UnifrakturMaguntia', cursive;
 */
 
 section.content { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/newspaper.jpg); background-size: 100% 100%; }
+section.content > div.dashboard-widgets { font-family: 'Lora', serif; filter: grayscale(1); }
 section.content > div.dashboard-widgets div.widget { background: none; }
 section.content > div.dashboard-widgets div.widget > div.panel { border: none; background: none; }
 section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading { border: none; padding-bottom: 5px; }
 section.content > div.dashboard-widgets div.widget > div.panel > div.panel-body { padding-top: 5px; }
-section.content > div.dashboard-widgets { font-family: 'Lora', serif; }
+section.content > div.dashboard-widgets div.entity-content p { text-align: justify; text-justify: inter-word; }
+
+/* Entities with images */
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity { transition: none; border-radius: 0; height: auto; max-height: 400px; background-size: cover; background-position-y: calc(24pt + 10px); padding-top: 10px; }
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity:after {
+  content: '';
+  display:inline-block;
+  vertical-align: top;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+}
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 { background: none; } 
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 > a {color: unset!important;text-shadow: unset;padding: 0;} 
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 > a:hover { color: var(--link-hover); }
+
+/* Specific widgets for header; change to generic instead of id for marketplace */
 section.content > div.dashboard-widgets h3#dashboard-widget-222100 { font-family: 'UnifrakturMaguntia', cursive; font-size: 56px; }
 div.panel#dashboard-widget-222104 > div.panel-heading { display: none; }
 div.panel#dashboard-widget-222104 > div.panel-body { padding-top: 0; padding-bottom: 0; }
 div.panel#dashboard-widget-222104 > div.panel-body hr { border-top: 1px solid #555; margin-top: 0; margin-bottom: 0; }
+
 section.content > div.dashboard-widgets h3.panel-title > a { font-family: 'Lora', serif; font-weight: 800; font-size: 150%; }
-section.content > div.dashboard-widgets div.entity-content a.entity-mention { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/circle-02.png);
+
+/* Circle links */
+section.content > div.dashboard-widgets div.entity-content a.entity-mention { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/circle.png);
     background-size: 100% 100%; background-position: center center; padding: 5px; margin: -5px;  
     font-family: 'Lora', serif;
     color: black; }
-section.content > div.dashboard-widgets div.entity-content p { text-align: justify; text-justify: inter-word; }
 
 /* Table stuff */
 table.newspaper-header { margin-bottom: 0; }
-table.newspaper-header > tbody > tr > td { width: 33%; text-align: left; }
-table.newspaper-header > tbody > tr > td + td { text-align: center; }
+table.newspaper-header > tbody > tr > td { width: 25%; text-align: left; }
+table.newspaper-header > tbody > tr > td + td { width: 50%; text-align: center; }
 table.newspaper-header > tbody > tr > td + td + td { text-align: right; }
