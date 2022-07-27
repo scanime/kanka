@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=UnifrakturMaguntia&display=swap');
 
-/*
-font-family: 'Lora', serif;
-font-family: 'UnifrakturMaguntia', cursive;
-*/
+:root { 
+  --adstrip1: url('https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/strip01.webp'); 
+  --adstrip2: url('https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/strip02.webp'); 
+  --adstrip3: url('https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/strip03.webp');   
+  --adstrip4: url('https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/strip04.webp');   
+}
 
-section.content { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/newspaper.jpg); background-size: 100% 100%; }
-section.content > div.dashboard-widgets { font-family: 'Lora', serif; filter: grayscale(1); }
+#campaign-dashboard > section.content { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/newspaper.jpg); background-size: 100% 100%; }
+section.content > div.dashboard-widgets {font-family: 'Lora', serif;filter: grayscale(1);}
 section.content > div.dashboard-widgets div.widget { background: none; }
 section.content > div.dashboard-widgets div.widget > div.panel { border: none; background: none; }
 section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading { border: none; padding-bottom: 5px; padding-left: 0; padding-right: 0; }
@@ -14,35 +16,114 @@ section.content > div.dashboard-widgets div.widget > div.panel > div.panel-body 
 section.content > div.dashboard-widgets div.entity-content p { text-align: justify; text-justify: inter-word; }
 
 /* Entities with images */
-section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity { transition: none; border-radius: 0; height: auto; max-height: 400px; background-size: cover; background-position-y: calc(24pt + 10px); padding-top: 10px; }
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity { transition: none; border-radius: 0; height:400px; max-height: 400px; background-size: cover; background-position-y: calc(24pt + 10px); padding-top: 10px; }
 section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity:after {
   content: '';
-  display:inline-block;
+  background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/grain-2b.png);
+  display: inline-block;
   vertical-align: top;
-  width: 100%;
-  height: 0;
-  padding-top: 100%;
+  width: calc( 100% - 30px );
+  height: calc( 400px - 10px - 24pt);
+  margin-top: 10px;
+  position: absolute;
 }
+section.content > div.dashboard-widgets div.col-md-6 div.widget > div.panel > div.panel-heading.panel-heading-entity:after,
+section.content > div.dashboard-widgets div.col-md-9 div.widget > div.panel > div.panel-heading.panel-heading-entity:after,
+section.content > div.dashboard-widgets div.col-md-12 div.widget > div.panel > div.panel-heading.panel-heading-entity:after {
+  height: calc( 400px - 10px - 48pt);
+}
+
 section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 { background: none; } 
-section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 > a { color: unsset!important; text-shadow: unset; padding: 0; } 
+section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 > a { color: unset!important; text-shadow: unset; padding: 0; } 
 section.content > div.dashboard-widgets div.widget > div.panel > div.panel-heading.panel-heading-entity h3 > a:hover { color: var(--link-hover); }
+section.content > div.dashboard-widgets div.col-md-6 div.widget > div.panel > div.panel-heading.panel-heading-entity,
+section.content > div.dashboard-widgets div.col-md-9 div.widget > div.panel > div.panel-heading.panel-heading-entity,
+section.content > div.dashboard-widgets div.col-md-12 div.widget > div.panel > div.panel-heading.panel-heading-entity {
+  background-position-y: calc(48pt + 10px);
+}
 
 /* Newspaper header */
-section.content > div.dashboard-widgets > div.row:nth-of-type(1) h3.widget-header-text { font-family: 'UnifrakturMaguntia', cursive; font-size: 56px; }
-section.content > div.dashboard-widgets > div.row:nth-of-type(2) div.panel-heading { display: none; }
-section.content > div.dashboard-widgets > div.row:nth-of-type(2) div.panel-body { padding-top: 0; padding-bottom: 0; }
-section.content > div.dashboard-widgets > div.row:nth-of-type(2) div.panel-body hr { border-top: 1px solid #555; margin-top: 0; margin-bottom: 0; }
+section.content > div.dashboard-widgets > div.row:nth-of-type(1) h3.widget-header-text { font-family: 'UnifrakturMaguntia', cursive; font-size: calc( 500% + 2vw ); }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-heading { display: none; }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-body { padding-top: 0; padding-bottom: 0; }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-body hr { border-top: 1px solid #555; margin-top: 0; margin-bottom: 0; }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-body table { margin-bottom: 0; }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-body table > tbody > tr > td { width: 25%; text-align: left; }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-body table > tbody > tr > td + td { width: 50%; text-align: center; }
+section.content > div.dashboard-widgets > div.row div.newspaper-header div.panel-body table > tbody > tr > td + td + td { text-align: right; }
+@media (max-width: 992px) { section.content > div.dashboard-widgets > div.row div.newspaper-header { font-size: 75%; } }
 
+/* Fake old time ads */
+section.content > div.dashboard-widgets > div.row {  overflow: hidden; align-self: stretch; }
+div.panel.widget-preview.newspaper-article:after
+{
+  background-image: var(--adstrip1);
+  background-repeat: repeat-y;
+  background-position: top center;
+  width: calc(100% - 20px);
+  content: '';
+  display: flex;
+  height: 1000%;
+  position: absolute;
+  background-size: contain; 
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(odd) > div:nth-of-type(2) div.panel.widget-preview.newspaper-article:after {
+  background-image: var(--adstrip2);
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(odd) > div:nth-of-type(3) div.panel.widget-preview.newspaper-article:after {
+  background-image: var(--adstrip3);
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(odd) > div:nth-of-type(4) div.panel.widget-preview.newspaper-article:after {
+  background-image: var(--adstrip4); 
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(even) > div:nth-of-type(1) div.panel.widget-preview.newspaper-article:after {
+  background-position-y: bottom;
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(even) > div:nth-of-type(2) div.panel.widget-preview.newspaper-article:after {
+  background-position-y: bottom;
+  background-image: var(--adstrip2);
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(even) > div:nth-of-type(3) div.panel.widget-preview.newspaper-article:after {
+  background-position-y: bottom;
+  background-image: var(--adstrip3);
+}
+section.content > div.dashboard-widgets > div.row:nth-of-type(even) > div:nth-of-type(4) div.panel.widget-preview.newspaper-article:after {
+  background-position-y: bottom;
+  background-image: var(--adstrip4); 
+}
+/* Don't show ads on single column */
+@media (max-width: 992px) { div.panel.widget-preview.newspaper-article:after { background: none; height: unset; content: unset; } }
+
+/* Headlines/title links */
 section.content > div.dashboard-widgets h3.panel-title > a { font-family: 'Lora', serif; font-weight: 800; font-size: 150%; }
+section.content > div.dashboard-widgets div.col-md-6 h3.panel-title > a, 
+section.content > div.dashboard-widgets div.col-md-9 h3.panel-title > a,
+section.content > div.dashboard-widgets div.col-md-12 h3.panel-title > a { font-size: 300%; }
 
 /* Circle links */
 section.content > div.dashboard-widgets div.entity-content a.entity-mention { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/circle.png);
     background-size: 100% 100%; background-position: center center; padding: 5px; margin: -5px;  
     font-family: 'Lora', serif;
-    color: black; }
+    color: black; 
+}
+section.content > div.dashboard-widgets div.entity-content a.entity-mention:hover { background: url(https://raw.githubusercontent.com/scanime/kanka/main/css/left-field/circle.png);
+    background-size: 100% 100%; background-position: center center; padding: 5px; margin: -5px;  
+    font-family: 'Lora', serif;
+    color: black; 
+}
 
-/* Table stuff */
-table.newspaper-header { margin-bottom: 0; }
-table.newspaper-header > tbody > tr > td { width: 25%; text-align: left; }
-table.newspaper-header > tbody > tr > td + td { width: 50%; text-align: center; }
-table.newspaper-header > tbody > tr > td + td + td { text-align: right; }
+/* Custom Headlines */
+div.widget.widget-header > h3.newspaper-headline { 
+  -webkit-transform:scale(2,1); /* Safari and Chrome */
+  -moz-transform:scale(2,1); /* Firefox */
+  -ms-transform:scale(2,1); /* IE 9 */
+  -o-transform:scale(2,1); /* Opera */
+  transform:scale(2,1); /* W3C */  
+  letter-spacing: 0.1vw;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  font-family: 'Lora', serif; font-weight: 800;  text-transform: uppercase; 
+  font-size: calc(16px + 6 * ((200vw - 320px) / 680));
+}
+body.sidebar-collapse div.content-wrapper div.widget.widget-header > h3.newspaper-headline { font-size: calc(16px + 6 * ((280vw - 320px) / 680)); }
+@media (max-width: 992px) { div.widget.widget-header > h3.newspaper-headline { font-size: calc( 100% + 1.5vw ); } }
