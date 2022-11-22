@@ -1,15 +1,23 @@
-
 .box {
     margin-bottom: 20px;
     position: relative;
     width: 100%;
-    clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px
-px
-, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);
+    clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);
     border-top-color: #416567;
     border-left-color: #aad9ea;
     border-right-color: #4e797d;
     border-bottom-color: #6eb2bf;
     padding: 10px;
     background: conic-gradient( #416567 0% 15%, #355556 calc(15%) 17%, #4e797d 17% 33%, #639ba4 33% 35%, #6fb1bf 35% 65%, #aad9ea 65% 67%, #aad9ea 67% 83%, #8acde2 83% 85%, #416567 85% 100% );
+}
+.box::before {
+    background: beige;
+    content: '';
+    width: calc( 100% - 20px);
+    height: calc( 100% - 20px );
+    display:block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);    
 }
