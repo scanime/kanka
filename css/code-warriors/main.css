@@ -1,14 +1,14 @@
-.box {
     margin-bottom: 20px;
     position: relative;
     width: 100%;
     clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);
-    border-top-color: #416567;
-    border-left-color: #aad9ea;
-    border-right-color: #4e797d;
-    border-bottom-color: #6eb2bf;
-    padding: 10px;
-    background: conic-gradient( #416567 0% 15%, #355556 calc(15%) 17%, #4e797d 17% 33%, #639ba4 33% 35%, #6fb1bf 35% 65%, #aad9ea 65% 67%, #aad9ea 67% 83%, #8acde2 83% 85%, #416567 85% 100% );
+    padding: 20px;
+    border-image-slice: 20 20 20 20;
+    border-image-width: 33px 33px 33px 33px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: stretch stretch;
+    border-image-source: url(https://raw.githubusercontent.com/scanime/kanka/main/css/code-warriors/border-test.gif);
+    border-style: solid;
 }
 .box::before {
     background: beige;
