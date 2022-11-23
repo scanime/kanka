@@ -6,7 +6,7 @@
 
 .content {
     background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/code-warriors/stripe-back.gif);
-    background-size: cover;
+    background-size: 50%;
 }
 .entity-header .entity-name-header .entity-name, .box .box-header .box-title {
     font-family: 'Audiowide', cursive;
