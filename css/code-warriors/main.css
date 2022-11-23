@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+:root {
+    --box-header-text: #2d3963;
+}
+
+.content {
+    background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/code-warriors/stripe-back.gif);
+    background-size: cover;
+}
+.entity-header .entity-name-header .entity-name, .box .box-header .box-title {
+    font-family: 'Audiowide', cursive;
+}
+.box {
     margin-bottom: 20px;
     position: relative;
     width: 100%;
@@ -11,7 +25,7 @@
     border-style: solid;
 }
 .box::before {
-    background: beige;
+    background: var(--body-background);
     content: '';
     width: calc( 100% - 20px);
     height: calc( 100% - 20px );
@@ -20,4 +34,7 @@
     top: 10px;
     left: 10px;
     clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);    
+}
+.box .box-body, .box .box-footer {
+    position: relative;
 }
