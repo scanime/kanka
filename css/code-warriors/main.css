@@ -35,6 +35,8 @@
     top: 10px;
     left: 10px;
     clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);    
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px 0px rgb(0 0 0 / 33%) inset, -5px -5px 10px 0px rgb(0 0 0 / 33%) inset;
 }
 .box .box-body, .box .box-footer {
     position: relative;
