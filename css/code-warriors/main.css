@@ -5,9 +5,10 @@
 }
 
 .content {
-    background-image: url(https://raw.githubusercontent.com/scanime/kanka/main/css/code-warriors/stripe-back.gif);
-    background-size: 50%;
-}
+    background:-webkit-repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);
+    background:-o-repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);
+    background:-moz-repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);
+    background:repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);}
 .entity-header .entity-name-header .entity-name, .box .box-header .box-title {
     font-family: 'Audiowide', cursive;
 }
