@@ -4,11 +4,6 @@
     --box-header-text: #2d3963;
 }
 
-.content {
-    background:-webkit-repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);
-    background:-o-repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);
-    background:-moz-repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);
-    background:repeating-linear-gradient(125deg, #7ac6da 0px, #7ac6da 100px, #c6e5ef 100px, #c6e5ef 125px, #7ac6da 125px, #7ac6da 300px, #c6e5ef 300px, #c6e5ef 315px, #7ac6da 315px, #7ac6da 330px, #c6e5ef 330px, #c6e5ef 345px, #7ac6da 345px, #7ac6da 525px, #c6e5ef 525px, #c6e5ef 550px, #7ac6da 550px, #7ac6da 675px, #c6e5ef 675px, #c6e5ef 700px, #7ac6da 700px);}
 .entity-header .entity-name-header .entity-name, .box .box-header .box-title {
     font-family: 'Audiowide', cursive;
 }
@@ -21,9 +16,13 @@
     border-image-slice: 20 20 20 20;
     border-image-width: 33px 33px 33px 33px;
     border-image-outset: 0px 0px 0px 0px;
-    border-image-repeat: stretch stretch;
-    border-image-source: url(https://raw.githubusercontent.com/scanime/kanka/main/css/code-warriors/border-test.gif);
-    border-style: solid;
+    border-image-repeat:
+stretch stretch;
+    border-image-source:
+url("https://raw.githubusercontent.com/scanime/kanka/main/css/code-warriors/border-test.gif");
+    border-style:
+solid;
+    /* box-shadow: 10px 10px 5px 0px rgb(0 0 0 / 75%); */
 }
 .box::before {
     background: var(--body-background);
@@ -34,10 +33,118 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);    
-    border-radius: 25px;
+    clip-path: polygon(20px 0px, calc( 100% - 20px ) 0px, 100% 20px, 100% calc( 100% - 20px ), calc( 100% - 20px ) 100%, 20px 100%, 0% calc( 100% - 20px ), 0% 20px);
     box-shadow: 5px 5px 10px 0px rgb(0 0 0 / 33%) inset, -5px -5px 10px 0px rgb(0 0 0 / 33%) inset;
+    /* transform: rotate(0.5deg); */
+    border-radius: 25px;
 }
-.box .box-body, .box .box-footer {
-    position: relative;
+
+/** Entity submenu **/
+.entity-submenu .box ul.nav > li > a {
+    font-family: 'Audiowide', cursive;
+}
+.entity-submenu .box ul.nav > li > a:hover {
+    background-color: inherit;
+}
+.entity-submenu .box ul.nav > li > a:after {
+    display:block; 
+    margin-top: -1.5em;
+    opacity: 0;
+    content: 'ASDF4klasdf4a';
+}
+.entity-submenu .box ul.nav > li > a.icon:after {
+    content:'X';
+}
+.entity-submenu .box ul.nav > li > a[title="Overview"]:after {
+    content:'Overview';
+}
+.entity-submenu .box ul.nav > li > a[title="Connections"]:after {
+    content:'Connections';
+}
+.entity-submenu .box ul.nav > li > a[title="Profile"]:after {
+    content:'Profile';
+}
+.entity-submenu .box ul.nav > li > a[title="Organisations"]:after {
+    content:'Organisations';
+}
+.entity-submenu .box ul.nav > li > a[title="Abilities"]:after {
+    content:'Abilities';
+}
+.entity-submenu .box ul.nav > li > a[title="Reminders"]:after {
+    content:'Reminders';
+}
+.entity-submenu .box ul.nav > li > a[title="Attributes"]:after {
+    content:'Attributes';
+}
+.entity-submenu .box ul.nav > li > a[title="Inventory"]:after {
+    content:'Inventory';
+}
+.entity-submenu .box ul.nav > li > a[title="Assets"]:after {
+    content:'Assets';
+}
+.entity-submenu .box ul.nav > li > a[title="Permissions"]:after {
+    content:'Permissions';
+}
+
+.entity-submenu .box ul.nav > li > a:hover {
+  color: var(--submenu-link);
+  text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+    0.025em 0.04em 0 #fffc00;
+  animation: glitch 725ms infinite;
+}
+.entity-submenu .box ul.nav > li > a:hover::after {
+  animation: glitch 375ms infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translate(0.04em, 0.03em);
+  opacity: 0.75;
+}
+
+
+@media (max-width: 991px) {
+    .entity-submenu .box {
+        padding: 0px;
+        clip-path: polygon(6px 0px, calc( 100% - 6px ) 0px, 100% 6px, 100% calc( 100% - 6px ), calc( 100% - 6px ) 100%, 6px 100%, 0% calc( 100% - 6px ), 0% 6px);
+        border-image-width: 6px 6px 6px 6px;    
+        border-image-slice: 6 6 6 6;
+    }
+    .entity-submenu .box::before {
+        clip-path: none;
+        border-radius: 0;
+        width: calc( 100% - 6px );
+        height: calc( 100% - 6px );
+        top: 3px;
+        left: 3px;
+        box-shadow: 2px 2px 5px 0px rgb(0 0 0 / 33%) inset, -2px -2px 5px 0px rgb(0 0 0 / 33%) inset;
+    }    
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+      -0.04em -0.025em 0 #fffc00;
+  }
 }
