@@ -1,0 +1,352 @@
+.mkstd-default {
+  background: rgb(240,230,228);
+  background: linear-gradient(175deg, rgba(240,230,228,1) 0%, rgba(252,248,229,1) 100%);
+  padding: 10px;
+}
+
+.mkstd-sheet {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title ."
+    "kitty-name kitty-name ."
+    "player-name player-name ."
+    "description description description"
+    "talent talent talent"
+    "magical-power magical-power magical-power"
+    "flaw flaw flaw"
+    "owies owies injuries"
+    "treats treats treats"
+    "xp xp xp"
+    "hometown-name hometown-name hometown-name"
+    "human-name human-name human-name"
+    "human-desc human-desc human-desc"
+    "human-problem human-problem human-problem"
+}
+
+.mkstd-sheet #kitty-image-shadow {
+    display: inline;
+    width: min( 50%, 370px );
+    height: 370px;
+    margin-top: -10px;
+    background-color: rgba(0,0,0,0.35);
+    clip-path: circle(68.2% at 76% 25%);
+    position: absolute;
+    right: 10px;
+}
+
+.mkstd-sheet #kitty-image-border {
+    width: calc( 100% - 6px );
+    height: calc( 100% - 6px );
+    background-color: #7bb7d2;
+    clip-path: circle(68.2% at 76% 25%);
+    position: absolute;
+    top: 0;
+    left: 6px;
+}
+
+.mkstd-sheet #kitty-image {
+    clip-path: circle(68.2% at 76% 25%);
+    background-image: var(--entity-image-url);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 50;
+    height: calc( 100% - 6px );
+    position: absolute;
+    background-position: center;
+    top: 0;
+    left: 6px;
+    width: calc( 100% - 6px );
+}
+
+.mkstd-sheet h4 { font-size: 2em; margin-bottom: 0; min-height: 1em; }
+
+.mkstd-sheet #title { grid-area: title; background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/mk-title-small.png?raw=true'); background-repeat: no-repeat; background-size: contain; height: 105px; width: calc( 100% * 2 / 3 ); }
+.mkstd-sheet #kitty-name { grid-area: kitty-name; }
+.mkstd-sheet #player-name { grid-area: player-name; }
+.mkstd-sheet #description { grid-area: description; border: 2px solid #014D66; border-bottom: none; }
+.mkstd-sheet #description > .mkstd-label { background-color: #77a2b6; width: calc( 100% * 2 / 3 ); }
+.mkstd-sheet #description #desc-value, .mkstd-sheet #human-description #human-desc-value { min-height: 3em; padding-top: 3px; }
+.mkstd-sheet .box-attr { padding-bottom: 10px; min-height: 8em; }
+.mkstd-sheet #talent { grid-area: talent; border: 2px solid #8d7eaa; border-bottom: none; }
+.mkstd-sheet #magical-power { grid-area: magical-power; border: 2px solid #80b9d3; border-bottom: none; }
+.mkstd-sheet #flaw { grid-area: flaw; border: 2px solid #cf968c; }
+.mkstd-sheet #hometown-name { grid-area: hometown-name; }
+.mkstd-sheet #human-name { grid-area: human-name; }
+.mkstd-sheet #human-description { grid-area: human-desc; border: 2px solid #014D66; border-bottom: none; }
+.mkstd-sheet #human-description > .mkstd-label { background-color: #77a2b6; width: calc( 100% * 2 / 3 ); }
+.mkstd-sheet #human-description #desc-value { min-height: 3em; padding-top: 3px; }
+.mkstd-sheet #human-problem { grid-area: human-problem; border: 2px solid #cf968c; display: flex; align-items: flex-start; }
+.mkstd-sheet #human-problem-main { flex-basis: 80%; }
+.mkstd-sheet #human-problem-rank { filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));border: 5px solid #ab4444;text-align: center;padding: 15px;font-size: max( 2vw, 150% );font-weight: 800;color: black;background: white; padding-top: 25px; width: 100%; flex-basis: 20%; align-self: center; margin-left: 1em; margin-right: 0.5em; }
+.mkstd-sheet #human-problem-rank:before { content: 'Rank'; display: block; width: 100%; height: 2em; font-size: 40%; color: #ab4444; text-transform: uppercase; position: absolute; top: 0; left: 0; text-align: center; }
+.mkstd-sheet .box-field { padding-left: 15px; padding-right: 10px; font-size: 125%; }
+
+.mkstd-sheet .mkstd-label {
+  font-family: 'Mouse Memoirs', sans-serif;
+  -webkit-transform: scale(1.5,1);
+  -moz-transform: scale(1.5,1);
+  -ms-transform: scale(1.5,1);
+  -o-transform: scale(1.5,1);
+  transform: scale(1.5,1);
+  transform-origin: left;  
+  font-size: 1.5em;  
+  padding: 6px 6px 6px 10px;
+}
+  
+.mkstd-sheet .invert-label {
+  color: white;
+}
+  
+.mkstd-sheet .under-label {
+  width: 100%;
+  border-top: 2px solid #014D66;
+  color: #014d65;
+  margin-bottom: 10px;
+  padding: 0px 0px 0px 10px;  
+}
+
+.mkstd-sheet #talent-label {
+  color: #492b72;
+}
+.mkstd-sheet #magical-power-label {
+  color: #0387ac;
+}
+.mkstd-sheet #flaw-label, .mkstd-sheet #human-problem-label {
+  color: #ab4444;
+}
+
+.mkstd-sheet .kitty-attributes {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    right: 0;
+    margin-right: 40px;
+    margin-top: 120px;  
+}
+.mkstd-sheet .kitty-attributes > div { 
+    width: 100px;
+    height: 110px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-size: 300%;
+    color: rgba(0,0,0,0.8);
+    text-align: center;
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));
+}
+.mkstd-sheet .kitty-attributes.inline {
+  display: none;
+  margin-right: unset;
+  margin-top: unset;
+}
+.mkstd-sheet .kitty-attributes.inline > div {
+    padding-top: 48px;
+}
+.mkstd-sheet .kitty-attributes.floating {
+   position: absolute;
+}
+.mkstd-sheet .kitty-attributes.floating > div {
+    position: relative;
+    z-index: 200;
+    padding-top: 45px;
+}
+.mkstd-sheet .kitty-cute { background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20cute%203.png?raw=true'); }
+.mkstd-sheet .kitty-cunning { background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20cunning%203.png?raw=true'); }
+.mkstd-sheet .floating .kitty-cunning { margin-top: 85px; } 
+.mkstd-sheet .kitty-fierce { background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20fierce%203.png?raw=true'); }
+.mkstd-sheet .floating .kitty-fierce { margin-top: 140px; } 
+
+.mkstd-sheet #owies {
+	grid-area:owies;
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		"owie-desc"
+		"owies";
+	padding: 10px;
+	margin-left: -10px;
+}
+.mkstd-sheet #owies #owies-desc { grid-area: owie-desc; color: #ab4444; }
+.mkstd-sheet #owies #owies-desc #owies-header { text-transform: uppercase; font-weight: 800; font-size: 110%; }
+.mkstd-sheet #owies #owie-list {grid-area: owies;display: flex;column-gap: 3%;align-items: center;background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 30%, rgba(171,68,68,1) 30%, rgba(171,68,68,1) 80%, rgba(255,255,255,0) 80%, rgba(255,255,255,0) 100%);padding-left: 10px;padding-right: 10px;}
+.mkstd-sheet #owies .owie-limit { filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));border: 5px solid #ab4444;text-align: center;padding: 15px;font-size: max( 2vw, 150% );font-weight: 800;color: black;background: white; padding-top: 25px; width: 100%; flex-basis: 50%; }
+.mkstd-sheet #owies .owie-limit:before { content: 'Limit'; display: block; width: 100%; height: 2em; font-size: 40%; color: #ab4444; text-transform: uppercase; position: absolute; top: 0; left: 0; text-align: center; }
+.mkstd-sheet #owies #owie-list > .owie-mark {
+	background-size: contain;
+	background-repeat: no-repeat;	
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));
+    text-align: center;
+    color: black;
+  font-size: 3vw;
+  vertical-align: middle;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mkstd-sheet #owies #owie-list> .owie-mark.owie-red {
+	background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20red.png?raw=true');
+}
+.mkstd-sheet .mark-gray {
+	background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20gray.png?raw=true')!important;
+}
+.mkstd-sheet .injuries {
+	display: grid;
+	grid-template-rows: 1fr 1fr 3fr;
+	grid-area: injuries;
+	padding: 10px;
+    margin-right: -10px;	
+}
+.mkstd-sheet .injuries.injury-col-3 {
+	grid-template-columns: repeat( 3, 1fr );	
+    grid-template-areas:
+    "injury-title injury-title injury-title"	
+	"injury-label-1 injury-label-2 injury-label-3"
+	"injury-mark-1 injury-mark-2 injury-mark-3"
+}
+.mkstd-sheet .injuries.injury-col-4 {
+	grid-template-columns: repeat( 4, 1fr );	
+    grid-template-areas:
+    "injury-title injury-title injury-title injury-title"	
+	"injury-label-1 injury-label-2 injury-label-3 injury-label-4"
+	"injury-mark-1 injury-mark-2 injury-mark-3 injury-mark-4"  
+}
+.mkstd-sheet .injuries #injury-label { grid-area: injury-title;  font-weight: 800; font-text: 110%; text-transform: uppercase; color: #ab4444; }
+.mkstd-sheet .injuries .injury-top {text-align:center;color: #ab4444;font-weight: 800;}
+.mkstd-sheet .injuries .injury-bottom { 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));
+    text-align: center;
+    color: black;
+    font-size: 3vw;
+    vertical-align: middle;
+    background-position: center;	
+	background-image: url(https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20red.png?raw=true); 
+    display: flex;
+    align-items: center;
+    justify-content: center;	
+}
+
+.mkstd-sheet #treats {
+  margin-top: 20px;
+  grid-area: treats;
+  display: grid;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -10px;  
+  margin-right: -10px;
+  grid-template-areas:
+    "treat-list"
+    "treat-help"
+}
+.mkstd-sheet #treats .treats-label { grid-area: treat-label; color: white; font-size: 110%; font-weight: 800; text-transform: uppercase; display: flex; align-items: center; justify-content: flex-start; padding-left: 1vw; width: 175%; }
+.mkstd-sheet #treats .treats-label.treats-label-upper { display: none; color: #d8712c; }
+.mkstd-sheet #treats #treat-list { grid-area: treat-list; display: flex; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 20%, rgba(215,113,44,1) 20%, rgba(215,113,44,1) 80%, rgba(255,255,255,0) 80%, rgba(255,255,255,0) 100%); column-gap: 3%;align-items: center; }
+.mkstd-sheet #treats #treat-list .treat-mark {
+  	background-size: contain;
+	background-repeat: no-repeat;	
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));
+    text-align: center;
+    color: black;
+  font-size: 3vw;
+  vertical-align: middle;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20treat%20orange.png?raw=true);
+    height: 100%;  
+}
+.mkstd-sheet #treats #treat-list .treat-mark.treat-gray {
+  background-image: url(https://github.com/scanime/kanka/blob/main/css/kitties/char%20sheet%20treat%20gray.png?raw=true);
+}
+.mkstd-sheet #treats #treats-starting { filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));border: 5px solid #d8712c;text-align: center;padding: 15px;font-size: max( 2vw, 150% );font-weight: 800;color: black;background: white; padding-top: 25px; width: 100%; margin-right: 2vw;}
+.mkstd-sheet #treats #treats-starting:before { content: 'Starting'; display: block; width: 100%; height: 2em; font-size: 40%; color: #d8712c; text-transform: uppercase; position: absolute; top: 0; left: 0; text-align: center; }
+
+.mkstd-sheet #treats #treats-help { grid-area: treat-help; font-size: 90%; color: #ab4444; }
+.mkstd-sheet #treats #treats-help .treats-help-text-header { text-transform: uppercase; font-weight: 800; width: 100%; }
+.mkstd-sheet #treats #treats-help .treats-help-list { display: flex; flex-wrap: wrap; }
+.mkstd-sheet #treats #treats-help .treats-help-text { flex-basis: 50%; }
+.mkstd-sheet #treats #treats-help .treats-help-text > ul { margin-bottom: 0; padding-inline-start: 2em; }
+
+.mkstd-sheet #xp { grid-area: xp; display: grid;  margin-top: 20px;
+  grid-template-areas: 
+    "xp-label"
+    "xp-list"
+}
+.mkstd-sheet #xp .xp-level { grid-area: xp-label; text-transform: uppercase; font-weight: 800; font-size: 110%; color: #014b5b; width: 100%; }
+.mkstd-sheet #xp .xp-list { grid-area: xp-list; display: flex; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 20%, rgba(191,229,227,1) 20%, rgba(191,229,227,1) 80%, rgba(255,255,255,0) 80%, rgba(255,255,255,0) 100%); column-gap: 3%;align-items: center; padding-left: 10px; padding-right: 10px; }
+.mkstd-sheet #xp .xp-list .xp-mark { background-image: url('https://github.com/scanime/kanka/blob/main/css/kitties/foe%20stat%20blank.png?raw=true'); background-size: contain;
+	background-repeat: no-repeat;	
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));
+    text-align: center;
+    color: black;
+  font-size: 3vw;
+  vertical-align: middle;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; height: 100%; }
+
+.mkstd-sheet #xp #xp-level { filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.35));border: 5px solid #0387ac;text-align: center;padding: 15px;font-size: max( 2vw, 150% );font-weight: 800;color: black;background: white; padding-top: 25px; width: 100%; margin-right: 2vw;}
+.mkstd-sheet #xp #xp-level:before { content: 'Level'; display: block; width: 100%; height: 2em; font-size: 40%; color: #0387ac; text-transform: uppercase; position: absolute; top: 0; left: 0; text-align: center; }
+
+.mkstd-sheet #hometown-label, .mkstd-sheet #human-label { width: calc( 100% * 2 / 3 ); }
+
+/* When side is collapse */
+@media (max-width: 890px) {
+.mkstd-sheet #kitty-image-shadow { display: none; }  
+.mkstd-sheet .under-label { width: calc( 100% * 2 / 3); }
+.mkstd-sheet {
+  grid-template-columns: 1fr 1fr;  
+  grid-template-areas:
+    "title title"
+    "kitty-name kitty-name"
+    "player-name player-name"
+    "kitty-attrs kitty-attrs"
+    "description description"
+    "talent talent"
+    "magical-power magical-power"
+    "flaw flaw"
+    "owies owies"
+    "injuries injuries"
+    "treats treats"
+    "xp xp"
+    "hometown-name hometown-name"
+    "human-name human-name"
+    "human-desc human-desc"
+    "human-problem human-problem"
+}  
+.mkstd-sheet .kitty-attributes.floating {
+    display: none;
+  }
+.mkstd-sheet .kitty-attributes.inline {
+    grid-area: kitty-attrs;
+    display: flex;
+  }
+.mkstd-sheet #treats {
+  grid-template-areas:
+    "treat-label"
+    "treat-list"
+    "treat-help";
+}
+.mkstd-sheet #treats #treats-help .treats-help-list  
+  {
+    flex-direction: column;
+  }
+  .mkstd-sheet #treats .treats-label.treats-label-upper { display: inline-block; }
+  .mkstd-sheet #treats .treats-label.treats-label-inner { display: none; }
+}
