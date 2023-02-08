@@ -1,0 +1,113 @@
+:root{
+  /* For race entities & entity list */
+  --race-renamer-breadcrumb: "Ancestries";
+  --race-renamer-breadcrumb-size: 0.75rem;
+  --race-renamer-header: "Ancestries";
+  --race-renamer-header-size: 1.3rem;
+  --race-renamer-nested: "Displaying all ancestries that don't have a parent ancestry. Click on a row to see the children ancestries.";
+  --race-renamer-view-btn: "Ancestry";
+  --race-renamer-new-btn: "Ancestry";
+  --race-renamer-th-sub: "Sub-Ancestries";
+  --race-renamer-filtered: "Ancestries."; /* Don't forget the period */
+  --race-renamer-filtered-width: 7em;
+  --race-renamer-filtered-left: -3.5em;
+  --race-renamer-filtered-bg: var(--box-footer-background);
+  
+  /* For character entities */
+  --race-renamer-filter-label: "Ancestry";
+  --race-renamer-th-char: "Ancestries";
+  --race-renamer-profile: "Ancestries";
+  --race-renamer-profile-with-age: "Ancestries, Age";
+  --race-renamer-abilities: "Ancestry abilities";
+  
+  /* For forms */
+  --race-renamer-form-parent: "Parent Ancestry";
+  --race-renamer-form-choose: "Choose an ancestry";
+  --race-renamer-form-label-new: "New Ancestry";
+  --race-renamer-form-character: "Ancestries";   
+  
+  /* For quick creator */
+  --race-renamer-quick: "Ancestry";
+  --race-renamer-quick-add: "New Ancestry";
+  --race-renamer-quick-submit: "Create Ancestry";
+}
+
+/* For entities & entity list */
+body:is(.kanka-races, .kanka-entity-race) ol:is(.entity-breadcrumb, .breadcrumb) li > a:is([href$="/races"], [href$="/races/tree"]) { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) ol:is(.entity-breadcrumb, .breadcrumb) li > a:is([href$="/races"], [href$="/races/tree"]):after { content: var(--race-renamer-breadcrumb); font-size: var(--race-renamer-breadcrumb-size); }
+body:is(.kanka-races, .kanka-entity-race) section.content-header > h1 { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) section.content-header > h1:after { content: var(--race-renamer-header); font-size: var(--race-renamer-header-size);}
+body:is(.kanka-races, .kanka-entity-race) section.content .box > form > .box-body > p.help-block { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) section.content .box > form > .box-body > p.help-block:before { font-size: 14px; display: inline; content: var(--race-renamer-nested); }
+body:is(.kanka-races, .kanka-entity-race) section.content a.btn.pull-right:has( > i.fa-list ) { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) section.content a.btn.pull-right:has( > i.fa-list ):after { font-size: 14px; display: inline; content: var(--race-renamer-view-btn); }
+body:is(.kanka-races, .kanka-entity-race) section.content form.datagrid-search + a.btn.pull-right { font-size: 0; } /* For Firefox */
+body:is(.kanka-races, .kanka-entity-race) section.content form.datagrid-search + a.btn.pull-right:after { font-size: 14px; display: inline; content: var(--race-renamer-view-btn); } /* For Firefox */
+body:is(.kanka-races, .kanka-entity-race) section.content a.btn.pull-right > i.fa-list { font-size: 14px; }
+body:is(.kanka-races, .kanka-entity-race) section.content .btn-group > a.btn-new-entity { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) section.content .btn-group > a.btn-new-entity:after { font-size: 14px; display: inline; content: var(--race-renamer-new-btn); }
+body:is(.kanka-races, .kanka-entity-race) section.content .btn-group > a.btn-new-entity > i.fa-plus { font-size: 14px; }
+body:is(.kanka-races, .kanka-entity-race) section.content .box form .box-footer > p.help-block:after { content: var(--race-renamer-filtered); display: inline-block; width: var(--race-renamer-filtered-width); margin-left: var(--race-renamer-filtered-left); background-color: var(--race-renamer-filtered-bg); }
+table#races > thead > tr > th.avatar + th + th + th { font-size: 0; } /* looks weird, but works for public, players, and admin */
+table#races > thead > tr > th.avatar + th + th + th:after {display: inline; content: var(--race-renamer-th-sub); font-size: 14px;}
+body:is(.kanka-races, .kanka-entity-race) #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(3) > .col-md-6:first-of-type > .form-group > label { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(3) > .col-md-6:first-of-type > .form-group > label:after { content: var(--race-renamer-form-parent); font-size: 14px; }
+body:is(.kanka-races, .kanka-entity-race) #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(3) > .col-md-6:first-of-type .select2-selection__placeholder { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(3) > .col-md-6:first-of-type .select2-selection__placeholder:after { content: var(--race-renamer-form-choose); font-size: 14px; }
+body:is(.kanka-races, .kanka-entity-race) #race-characters #datagrid-parent table > thead > tr > th:last-of-type { font-size: 0; }
+body:is(.kanka-races, .kanka-entity-race) #race-characters #datagrid-parent table > thead > tr > th:last-of-type:before { font-size: 14px; content: var(--race-renamer-th-char); }
+
+/* For the quick creator */
+.modal .quick-creator-body .quick-creator-selection[data-entity-type="race"] > span { font-size: 0; }
+.modal .quick-creator-body .quick-creator-selection[data-entity-type="race"] > span:before { content: var(--race-renamer-quick); font-size:14px; }
+.modal-body.entity-creator-body-races > .quick-creator-header .dropdown > div { font-size: 0; }
+.modal-body.entity-creator-body-races > .quick-creator-header .dropdown > div:before { content: var(--race-renamer-quick-add); font-size: 1.5rem; }
+.modal-body.entity-creator-body-races > .quick-creator-header .dropdown > div:after {content: "\f078"; font-family: "Font Awesome 6 Pro";font-size: 1.5rem;font-weight: 900;display: var(--fa-display,inline-block);}
+.modal-body.entity-creator-body-races > .quick-creator-header .dropdown > ul.dropdown-menu > li.disabled > a { font-size: 0; }
+.modal-body.entity-creator-body-races > .quick-creator-header .dropdown > ul.dropdown-menu > li.disabled > a:after { content: var(--race-renamer-quick); font-size: 14px; margin-left: -1em;  }
+.modal-body.entity-creator-body-races > .quick-creator-header .dropdown > ul.dropdown-menu > li.disabled > a:before { content: "\f00c"; font-family: "Font Awesome 6 Pro"; font-size: 14px; font-weight: 900;display: var(--fa-display,inline-block); }
+.modal-body.entity-creator-body-races > .quick-creator-body > .qq-more-fields > .row > .col-sm-6:nth-child(2) > .form-group > label { font-size: 0; }
+.modal-body.entity-creator-body-races > .quick-creator-body > .qq-more-fields > .row > .col-sm-6:nth-child(2) > .form-group > label:after { content: var(--race-renamer-form-parent); font-size: 14px; }
+.modal-body.entity-creator-body-races > .quick-creator-body > .qq-more-fields > .row > .col-sm-6:nth-child(2) > .form-group > .input-group span.select2-selection__placeholder { font-size: 0; }
+.modal-body.entity-creator-body-races > .quick-creator-body > .qq-more-fields > .row > .col-sm-6:nth-child(2) > .form-group > .input-group span.select2-selection__placeholder:after { content: var(--race-renamer-form-choose); font-size: 14px; }
+.modal-body.entity-creator-body-races #qq-name-field::placeholder { color: var(--input-background-color); } /* Can't change placeholder text, but we can hide it */
+.modal-body.entity-creator-body-races > .quick-creator-footer.mt-4 > .btn-group > button.quick-creator-submit:first-of-type > span { font-size: 0; }
+.modal-body.entity-creator-body-races > .quick-creator-footer.mt-4 > .btn-group > button.quick-creator-submit:first-of-type > span:after { font-size: 14px; content: var(--race-renamer-quick-submit); }
+form#entity-creator-form > .modal-body.entity-creator-body-races > .quick-creator-header .text-2xl { font-size: 0; }
+form#entity-creator-form > .modal-body.entity-creator-body-races > .quick-creator-header .text-2xl:before { font-size: 1.5rem; content: var(--race-renamer-quick-add); }
+
+/* For forms */
+form.entity-form[action*="/races"] #form-entry > .row:nth-of-type(2) > .col-md-6:first-of-type > .form-group > label { font-size: 0; }
+form.entity-form[action*="/races"] #form-entry > .row:nth-of-type(2) > .col-md-6:first-of-type > .form-group > label:after { content: var(--race-renamer-form-parent); font-size: 14px; }
+form.entity-form[action*="/races"] #form-entry > .row:nth-of-type(2) > .col-md-6:first-of-type > .form-group > .input-group span.select2-selection__placeholder { font-size: 0; }
+form.entity-form[action*="/races"] #form-entry > .row:nth-of-type(2) > .col-md-6:first-of-type > .form-group > .input-group span.select2-selection__placeholder:after { content: var(--race-renamer-form-choose); font-size: 14px; }
+form.entity-form[action*="/races"] .form-group input[data-type="race"]::placeholder { color: var(--input-background-color); } /* Can't change placeholder text, but we can hide it */
+form.entity-form[action*="/races"] ol:is(.entity-breadcrumb, .breadcrumb) li > a:is([href$="/races"], [href$="/races/tree"]) { font-size: 0; }
+form.entity-form[action*="/races"] ol:is(.entity-breadcrumb, .breadcrumb) li > a:is([href$="/races"], [href$="/races/tree"]):after { content: var(--race-renamer-breadcrumb); font-size: var(--race-renamer-breadcrumb-size); }
+form.entity-form[action$="/races"] section.content-header > h1 { font-size: 0; }
+form.entity-form[action$="/races"] section.content-header > h1:after { content: var(--race-renamer-form-label-new); font-size: var(--race-renamer-header-size); }
+body.kanka-races #bulk-edit .modal-body > .row:nth-of-type(3) > .col-md-6:first-of-type > .form-group > label { font-size: 0; }
+body.kanka-races #bulk-edit .modal-body > .row:nth-of-type(3) > .col-md-6:first-of-type > .form-group > label:after { content: var(--race-renamer-form-parent); font-size: 14px; }
+body.kanka-races #bulk-edit .modal-body > .row:nth-of-type(3) > .col-md-6:first-of-type > .form-group > .input-group span.select2-selection__placeholder { font-size: 0; }
+body.kanka-races #bulk-edit .modal-body > .row:nth-of-type(3) > .col-md-6:first-of-type > .form-group > .input-group span.select2-selection__placeholder:after { content: var(--race-renamer-form-choose); font-size: 14px; }
+body.kanka-races #bulk-edit .modal-body .form-group input[data-type="race"]::placeholder { color: var(--input-background-color); } /* Can't change placeholder text, but we can hide it */
+body.kanka-characters #bulk-edit .modal-body > .row:nth-of-type(4) > .col-md-6:first-of-type > .form-group > label { font-size: 0; }
+body.kanka-characters #bulk-edit .modal-body > .row:nth-of-type(4) > .col-md-6:first-of-type > .form-group > label:after { content: var(--race-renamer-form-character); font-size: 14px; }
+form.entity-form[action*="/characters"] #form-entry > .row:nth-of-type(2) > .col-md-6:nth-of-type(2) > .form-group > label { font-size: 0; }
+form.entity-form[action*="/characters"] #form-entry > .row:nth-of-type(2) > .col-md-6:nth-of-type(2) > .form-group > label:after { content: var(--race-renamer-form-character); font-size: 14px; }
+
+/* For characters */
+body.kanka-characters #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(4) > .col-md-6:first-of-type > .form-group > label { font-size: 0; }
+body.kanka-characters #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(4) > .col-md-6:first-of-type > .form-group > label:after { content: var(--race-renamer-filter-label); font-size: 14px; }
+body.kanka-characters #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(4) > .col-md-6:first-of-type .select2-selection__placeholder { font-size: 0; }
+body.kanka-characters #crud-filters-form > #datagrid-filters > .box-body > .row:nth-of-type(4) > .col-md-6:first-of-type .select2-selection__placeholder:after { content: var(--race-renamer-form-choose); font-size: 14px; }
+body.kanka-entity-character section.content #sidebar-profile-elements > .profile-race > .title { font-size: 0; }
+body.kanka-entity-character section.content #sidebar-profile-elements > .profile-race > .title:before { content: var(--race-renamer-profile); font-size: 11px;  }
+body.kanka-entity-character section.content #sidebar-profile-elements > .profile-race-age > .title { font-size: 0; }
+body.kanka-entity-character section.content #sidebar-profile-elements > .profile-race-age > .title:before { content: var(--race-renamer-profile-with-age); font-size: 11px;  }
+body.kanka-entity-character.entity-abilities section.content .header-buttons > a.btn[href$="entity_abilities/import?from=race"] > span.hidden-sm.hidden-xs { font-size: 0; }
+body.kanka-entity-character.entity-abilities section.content .header-buttons > a.btn[href$="entity_abilities/import?from=race"] > span.visible-sm.visible-xs { font-size: 0; }
+body.kanka-entity-character.entity-abilities section.content .header-buttons > a.btn[href$="entity_abilities/import?from=race"] > span.hidden-sm.hidden-xs:before { font-size: 12px; content: var(--race-renamer-abilities); }
+body.kanka-entity-character.entity-abilities section.content .header-buttons > a.btn[href$="entity_abilities/import?from=race"] > span.visible-sm.visible-xs:before { font-size: 12px; content: var(--race-renamer-abilities); }
+table#characters > thead > tr > th.avatar + th + th + th + th + th { font-size: 0; } /* looks weird, but works for public, players, and admin */
+table#characters > thead > tr > th.avatar + th + th + th + th + th:after {display: inline; content: var(--race-renamer-th-char); font-size: 14px;}
