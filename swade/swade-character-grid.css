@@ -1,19 +1,29 @@
 .swade-default {
   --swade-marked-color: red;
-  --swade-header-bg-color: rgba(128,128,128,0.5);
-  --swade-header-border-color: black;
-  --swade-underline-color: rgba(0,0,0,0.3);
-  --swade-border-color: black;
+  --swade-header-bg-color: hsl(var(--bc)/0.25);
+  --swade-header-border-color: hsl(var(--bc)/var(--tw-text-opacity));
+  --swade-underline-color: hsl(var(--bc)/0.3);
+  --swade-border-color: hsl(var(--bc)/1);
+  --swade-die-color: hsl(var(--bc)/1);
+  --swade-die-on-color: red;
+  --swade-background: none;
+  --swade-text: var(--body-text, hsl(var(--bc)/var(--tw-text-opacity)));
 }
 .swade-dark {
   --swade-marked-color: red;
+  --swade-header-text-color: var(--body-text, hsl(var(--bc)/var(--tw-text-opacity)));
   --swade-header-bg-color: rgba(128,128,128,0.5);
   --swade-header-border-color: white;
   --swade-underline-color: rgba(255,255,255,0.3);
   --swade-border-color: white;
+  --swade-die-color: white;
+  --swade-die-on-color: red;
+  --swade-bg-color: none;
+  --swade-text: var(--body-text, hsl(var(--bc)/var(--tw-text-opacity)));
 }
 
 .swade-char-sheet {
+    background-color: var(--swade-bg-color);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -49,27 +59,71 @@
     padding: 10px;
     justify-content: center;
 }
-.swade-char-sheet h3 { margin: 0px; padding: 5px; text-align: center; text-transform: uppercase; font-size: 150%; }
+
+.swade-char-sheet .sw-error {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 0.25em;
+  border: 1px solid var(--swade-die-on-color);
+  background-color: var(--swade-header-bg-color);
+  color: var(--swade-die-on-color);
+  border-radius: 5px;
+  font-size: 75%;
+}
+
+@media (max-width: 769px)
+{
+    .swade-char-sheet {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "flavor"
+            "attributes"
+            "derived-stats"
+            "skills"
+            "hindrances"
+            "edges"
+            "health"
+            "powers"
+            "weapons"
+            "gear";
+    }
+    .swade-char-sheet.with-pp {
+        display: grid;
+        grid-template-columns: 1fr 40px;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "flavor pp"
+            "attributes pp"
+            "derived-stats pp"
+            "skills pp"
+            "hindrances pp"
+            "edges pp"
+            "health pp"
+            "powers pp"
+            "weapons pp"
+            "gear pp";
+    }
+}
+
+.swade-char-sheet { color: var(--swade-text); }
+.swade-char-sheet h3 { color: var(--swade-header-text-color); margin: 0px; padding: 5px; text-align: center; text-transform: uppercase; font-size: 150%; }
 .swade-char-sheet br { content: "A"!important; display: block !important; margin-bottom: 0.5em !important; border-bottom: 1px solid var(--swade-underline-color); margin-top: 0.5em!important; }
 
-.swade-char-sheet .dice-wrapper { display: contents; }
-.swade-char-sheet .dice { background-size: contain; background-repeat: no-repeat; background-position: top center; }
-.swade-char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4.png"); }
-.swade-char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6.png"); }
-.swade-char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8.png"); }
-.swade-char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10.png"); }
-.swade-char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12.png"); }
-.swade-dark .swade-char-sheet .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-white.png"); }
-.swade-dark .swade-char-sheet .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-white.png"); }
-.swade-dark .swade-char-sheet .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-white.png"); }
-.swade-dark .swade-char-sheet .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-white.png"); }
-.swade-dark .swade-char-sheet .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-white.png"); }
+.swade-char-sheet .dice-wrapper { display: contents;  }
+.swade-char-sheet .dice { -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: contain; mask-size: contain; -webkit-mask-position: top center; background-color: var(--swade-die-color); }
+.swade-char-sheet .d4 { -webkit-mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d4-300.svg"); mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d4-300.svg"); }
+.swade-char-sheet .d6 { -webkit-mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d6-300.svg"); mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d6-300.svg"); }
+.swade-char-sheet .d8 { -webkit-mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d8-300.svg"); mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d8-300.svg"); }
+.swade-char-sheet .d10 { -webkit-mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d10-300.svg"); mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d10-300.svg"); }
+.swade-char-sheet .d12 { -webkit-mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d12-300.svg"); mask-image: url("https://raw.githubusercontent.com/scanime/kanka/master/swade/img/d12-300.svg"); }
 
-.swade-char-sheet .dice-wrapper.d4 .d4, .swade-char-sheet .dice-wrapper.d4\+1 .d4 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d4-red.png"); }
-.swade-char-sheet .dice-wrapper.d6 .d6, .swade-char-sheet .dice-wrapper.d6\+1 .d6 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d6-red.png"); }
-.swade-char-sheet .dice-wrapper.d8 .d8, .swade-char-sheet .dice-wrapper.d8\+1 .d8 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d8-red.png"); }
-.swade-char-sheet .dice-wrapper.d10 .d10, .swade-char-sheet .dice-wrapper.d10\+1 .d10 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d10-red.png"); }
-.swade-char-sheet .dice-wrapper.d12 .d12, .swade-char-sheet .dice-wrapper.d12\+1 .d12 { background-image: url("https://raw.githubusercontent.com/scanime/kanka/main/swade/img/die-d12-red.png"); }
+.swade-char-sheet .dice-wrapper.d4 .d4, .swade-char-sheet .dice-wrapper.d4\+1 .d4, .swade-char-sheet .dice-wrapper.d4\+2 .d4, .swade-char-sheet .dice-wrapper.d4-2 .d4 { background-color: var(--swade-die-on-color); }
+.swade-char-sheet .dice-wrapper.d6 .d6, .swade-char-sheet .dice-wrapper.d6\+1 .d6, .swade-char-sheet .dice-wrapper.d6\+2 .d6, .swade-char-sheet .dice-wrapper.d6-2 .d6 { background-color: var(--swade-die-on-color); }
+.swade-char-sheet .dice-wrapper.d8 .d8, .swade-char-sheet .dice-wrapper.d8\+1 .d8, .swade-char-sheet .dice-wrapper.d8\+2 .d8, .swade-char-sheet .dice-wrapper.d8-2 .d8 { background-color: var(--swade-die-on-color); }
+.swade-char-sheet .dice-wrapper.d10 .d10, .swade-char-sheet .dice-wrapper.d10\+1 .d10, .swade-char-sheet .dice-wrapper.d10\+2 .d10, .swade-char-sheet .dice-wrapper.d10-2 .d10 { background-color: var(--swade-die-on-color); }
+.swade-char-sheet .dice-wrapper.d12 .d12, .swade-char-sheet .dice-wrapper.d12\+1 .d12, .swade-char-sheet .dice-wrapper.d12\+2 .d12, .swade-char-sheet .dice-wrapper.d12-2 .d12 { background-color: var(--swade-die-on-color); }
 
 .swade-char-sheet .flavor {
     border: 4px double var(--swade-border-color); border-radius: 10px;
@@ -94,8 +148,8 @@
     grid-template-areas:
         "d4 d6 d8 d10 d12 char-label value";
 }
-.swade-char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
-.swade-char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
+.swade-char-sheet .attributes .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: auto; display: grid; align-content: center; }
+.swade-char-sheet .attributes .value { font-size: 150%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: auto; }
 
 .swade-char-sheet .pp {
     grid-area: pp;
@@ -151,24 +205,18 @@
 .swade-char-sheet .skills .value { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: end; margin-bottom: 7px; }
 
 .swade-char-sheet .derived-stats {
-    grid-area: derived-stats;
-    display: grid;
-    justify-items: center;
+    display: flex;
     border-top: 3px double var(--swade-border-color);
     padding-top: 0.5em;
     margin-top: 0.5em;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-        "pace parry toughness";
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+    align-items: center;
 }
-.swade-char-sheet .derived-stats.size-4 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-        "pace parry toughness custom";
-}
-.swade-char-sheet .derived-stats .derived-labels { display: contents; }
-.swade-char-sheet .derived-stats .derived-labels div { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); align-self: center; }
+.swade-char-sheet .derived-stats .char-label { font-size: 125%; font-weight: 800; border-bottom: 1px solid var(--swade-underline-color); }
+.swade-char-sheet .derived-stats .value { text-align: center; }
 
 .swade-char-sheet .hindrances {
     grid-area: hindrances;
@@ -217,7 +265,8 @@
 .swade-char-sheet .health .checkoff {
     /** font-color: red; **/
 }
-.swade-char-sheet .health .checkoff::after { content: '&#x2718;'; color: var(--swade-marked-color); font-weight: 800; font-size: 125%; margin-left: -1em; }
+.swade-char-sheet .health .checkoff::after { content: '✘'; color: var(--swade-marked-color); font-weight: 800; font-size: 125%; margin-left: -1em; }
+.swade-char-sheet .health .char-label i.fa-skull { font-size: 150%; }
 
 .swade-char-sheet .powers {
     grid-area: powers;
@@ -228,12 +277,13 @@
         "powers-header"
         "powers-details";
 }
-.swade-char-sheet .powers-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 2 / span 2; }
+.swade-char-sheet .powers-header { align-self: center; justify-self: stretch; margin-bottom: 1em; background-color: var(--swade-header-bg-color); border-bottom: 1px solid var(--swade-header-border-color); grid-column: 1 / span 3; }
 
 .swade-char-sheet .powers:not(.powers-simple) .powers-details {
     grid-area: powers;
     display: grid;
     grid-template-columns: 2fr 1fr 1.5fr 1.5fr 5fr;
+    grid-column: 1 / span 3;
     grid-template-rows: auto;
     grid-template-areas:
         "power-name power-pp power-range power-duration power-effect"
@@ -258,12 +308,12 @@
     grid-area: weapons;
     display: grid;
     grid-column: 1 / span 3;
-    grid-template-columns: 2fr 1.5fr 1fr 1.5fr 1fr 1fr 4fr;
+    grid-template-columns: 2fr 1.5fr 1fr 1.5fr 1fr 1fr 1fr 4fr;
     grid-template-rows: auto;
     grid-template-areas:
-        "weapon-name weapon-range weapon-rof weapon-dmg weapon-shots weapon-wt weapon-notes";
+        "weapon-name weapon-range weapon-rof weapon-dmg weapon-ap weapon-shots weapon-wt weapon-notes";
 }
-.swade-char-sheet .weapons .weapons-details div:nth-child(-n+7) { font-weight: 800; }
+.swade-char-sheet .weapons .weapons-details div:nth-child(-n+8) { font-weight: 800; }
 .swade-char-sheet .weapons .weapons-details > div { border-bottom: 1px solid var(--swade-underline-color); }
 .swade-char-sheet .weapons .weapons-details div { text-align: center; }
 .swade-char-sheet .weapons .weapons-details .weapon-name { text-align: left; }
@@ -283,3 +333,13 @@
 .swade-char-sheet .gear .char-label  { font-weight: 800; justify-self: end; }
 .swade-char-sheet .gear .value { border-bottom: 1px solid var(--swade-underline-color); padding-left: 1em; margin-bottom: 1em; }
 .swade-char-sheet .gear .gear-details { grid-column: 1 / span 6; }
+
+
+/** Skill dice get too small at two columns and small widths **/
+@media (min-width:770px) and (max-width: 900px) {
+  .swade-char-sheet .skill-details .dice { display: none; }
+  .swade-char-sheet .skill-details {
+      grid-template-columns: 3fr 1fr 1fr;
+      grid-template-areas: "char-label attribute value";
+  }
+}
